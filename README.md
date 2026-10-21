@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README.zh-CN.md)
 
-A browser-ready port of [Delver](https://github.com/Aureusus/DelverStride2D) — the open-source first-person roguelike by Priority Interrupt LLC — built with **libGDX** and compiled to JavaScript/WebAssembly with **[TeaVM](https://teavm.org/)** (via the [gdx-teavm](https://github.com/xpenatan/gdx-teavm) backend). This repository also ships a complete **Chinese (zh-CN) localization toolchain** and translated game assets.
+A browser-ready port of [Delver](https://github.com/Interrupt/delverengine) — the open-source first-person roguelike by Priority Interrupt LLC — built with **libGDX** and compiled to JavaScript/WebAssembly with **[TeaVM](https://teavm.org/)** (via the [gdx-teavm](https://github.com/xpenatan/gdx-teavm) backend). This repository also ships a complete **Chinese (zh-CN) localization toolchain** and translated game assets.
 
 **Play it now:** https://zombie-kaiser.github.io/delver-web/html/webapp/
 

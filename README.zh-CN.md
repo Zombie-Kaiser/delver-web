@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README.zh-CN.md)
 
-本仓库是开源第一人称地牢 Roguelike 游戏 [Delver](https://github.com/Aureusus/DelverStride2D)（Priority Interrupt LLC 出品）的浏览器移植版：原始 **libGDX** Java 代码通过 **[TeaVM](https://teavm.org/)**（[gdx-teavm](https://github.com/xpenatan/gdx-teavm) 后端）编译为 JavaScript/WebAssembly，可以直接在网页中游玩。仓库同时包含完整的**中文（zh-CN）本地化工具链**与已翻译的游戏资源。
+本仓库是开源第一人称地牢 Roguelike 游戏 [Delver](https://github.com/Interrupt/delverengine)（Priority Interrupt LLC 出品）的浏览器移植版：原始 **libGDX** Java 代码通过 **[TeaVM](https://teavm.org/)**（[gdx-teavm](https://github.com/xpenatan/gdx-teavm) 后端）编译为 JavaScript/WebAssembly，可以直接在网页中游玩。仓库同时包含完整的**中文（zh-CN）本地化工具链**与已翻译的游戏资源。
 
 **在线游玩：** https://zombie-kaiser.github.io/delver-web/html/webapp/
 
