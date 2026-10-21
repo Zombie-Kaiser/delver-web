@@ -1,0 +1,189 @@
+[
+    {
+        "columns": 16,
+        "filename": "entities.png",
+        "scale": 1,
+        "name": "entity"
+    },
+    {
+        "columns": 4,
+        "filename": "textures.png",
+        "scale": 1,
+        "name": "texture"
+    },
+    {
+        "columns": 4,
+        "filename": "sprites.png",
+        "scale": 1,
+        "name": "sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "fog.png",
+        "scale": 1,
+        "name": "fog_sprites",
+        "filter": true
+    },
+    {
+        "columns": 8,
+        "filename": "items.png",
+        "scale": 0.5,
+        "name": "item",
+        "y_offset": 0.25
+    },
+    {
+        "columns": 8,
+        "filename": "armor.png",
+        "scale": 0.5,
+        "name": "armor",
+        "y_offset": 0.25
+    },
+    {
+        "columns": 8,
+        "filename": "melee.png",
+        "scale": 0.5,
+        "name": "melee",
+        "y_offset": 0.25
+    },
+    {
+        "columns": 8,
+        "filename": "wands.png",
+        "scale": 0.5,
+        "name": "wands",
+        "y_offset": 0.25
+    },
+    {
+        "columns": 8,
+        "filename": "unique.png",
+        "scale": 0.5,
+        "name": "unique",
+        "y_offset": 0.25
+    },
+    {
+        "columns": 8,
+        "filename": "particles.png",
+        "scale": 1,
+        "name": "particle"
+    },
+    {
+        "columns": 8,
+        "filename": "particles_large.png",
+        "scale": 1,
+        "name": "particle_large"
+    },
+    {
+        "columns": 16,
+        "filename": "font.png",
+        "scale": 1,
+        "name": "font"
+    },
+    {
+        "columns": 4,
+        "filename": "editor.png",
+        "scale": 1,
+        "name": "editor",
+        "filter": true
+    },
+    {
+        "columns": 16,
+        "filename": "entities_dungeon.png",
+        "scale": 1,
+        "name": "entities_dungeon"
+    },
+    {
+        "columns": 16,
+        "filename": "entities_sewer.png",
+        "scale": 1,
+        "name": "entities_sewer"
+    },
+    {
+        "columns": 16,
+        "filename": "entities_cave.png",
+        "scale": 1,
+        "name": "entities_cave"
+    },
+    {
+        "columns": 16,
+        "filename": "entities_undead.png",
+        "scale": 1,
+        "name": "entities_undead"
+    },
+    {
+        "columns": 16,
+        "filename": "entities_boss.png",
+        "scale": 1,
+        "name": "entities_boss"
+    },
+    {
+        "columns": 16,
+        "filename": "entities_surprise.png",
+        "scale": 1,
+        "name": "entities_surprise"
+    },
+    {
+        "columns": 16,
+        "filename": "npcs.png",
+        "scale": 1,
+        "name": "npcs"
+    },
+    {
+        "columns": 4,
+        "filename": "critters.png",
+        "scale": 1,
+        "name": "critters"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Dungeon/sprites.png",
+        "scale": 1,
+        "name": "dungeon_sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Cave/sprites.png",
+        "scale": 1,
+        "name": "cave_sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Cave/sprites_large.png",
+        "scale": 1,
+        "name": "cave_sprite_large"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Cold/sprites.png",
+        "scale": 1,
+        "name": "cold_sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Sewer/sprites.png",
+        "scale": 1,
+        "name": "sewer_sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Temple/sprites.png",
+        "scale": 1,
+        "name": "temple_sprite"
+    },
+    {
+        "columns": 4,
+        "filename": "textures/Temple/particles.png",
+        "scale": 1,
+        "name": "temple_particles"
+    },
+    {
+        "columns": 4,
+        "filename": "dust_puffs.png",
+        "scale": 1,
+        "name": "dust_puffs"
+    },
+    {
+        "columns": 4,
+        "filename": "vfx.png",
+        "scale": 1,
+        "name": "vfx"
+    }
+]

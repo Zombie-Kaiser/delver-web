@@ -1,0 +1,11 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+  api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
+  api "com.bladecoder.ink:blade-ink:$bladeInkVersion"
+
+  if(enableGraalNative == 'true') {
+    implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+  }
+}

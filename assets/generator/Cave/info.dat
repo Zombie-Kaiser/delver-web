@@ -1,0 +1,426 @@
+{
+    "lakes": [],
+    "surprises": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Surprises",
+            "name": "Bomb,Bomb,Bomb,Arrow_Bomb,Arrow_Bomb"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Surprises",
+            "name": "Bomb,Bomb,Bomb,Bomb,Fire_Bomb"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.MonsterSpawner",
+            "monsterTheme": "SURPRISE",
+            "monsterName": "SPIDER"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.MonsterSpawner",
+            "monsterTheme": "SURPRISE",
+            "monsterName": "SPIDER"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Surprises",
+            "name": "Treasure"
+        }
+    ],
+    "spawnLights": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.Torch",
+            "texAnimStart": 32,
+            "texAnimEnd": 39,
+            "spriteAtlas": "cave_sprite",
+            "torchAnimateMode": "LOOP",
+            "fullbrite": "true",
+            "yOffset": 0.125,
+            "lightColor": {
+                "r": 1.0,
+                "g": 0.8,
+                "b": 0.2,
+                "a": "1.0 "
+            },
+            "emitter": {
+                "class": "com.interrupt.dungeoneer.entities.ParticleEmitter",
+                "z": -0.25,
+                "scale": 0.5,
+                "particleVelocity": {
+                    "z": 0.01
+                },
+                "particleRandomSpawnInterval": 2.5,
+                "particleStartTex": 64,
+                "particleEndTex": 69,
+                "particleSpawnCount": 1,
+                "particleRandomSpawnCount": 1,
+                "particleSpread": {
+                    "x": 0.2,
+                    "y": 0.2,
+                    "z": -0.25
+                },
+                "particleRandomVelocity": {
+                    "z": 0.008
+                },
+                "particlesFullbrite": "true",
+                "particleLifetime": 25.0,
+                "particleRandomLifetime": 10.0,
+                "particleSpawnInterval": 90.0,
+                "particleColor": {
+                    "a": 1,
+                    "b": 0.95686275,
+                    "g": 0.95686275,
+                    "r": 1
+                },
+                "particlesCollide": "false",
+                "particlesFloat": "true",
+                "spawnDistance": 15.0
+            }
+        }
+    ],
+    "decorations": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 56,
+            "name": "Skull",
+            "yOffset": -0.11
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 74,
+            "name": "Bones",
+            "yOffset": -0.15
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 75,
+            "name": "Bones",
+            "yOffset": -0.15
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 56,
+            "name": "Skull",
+            "yOffset": -0.11
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Breakables",
+            "name": "Pot"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Breakables",
+            "name": "Pot"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.Prefab",
+            "category": "Clutter",
+            "name": "Skeleton"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Note",
+            "name": "Note",
+            "messageFile": "dungeonNotes/castle.dat",
+            "calcStepHeight": 0.1,
+            "tex": 60
+        }
+    ],
+    "texturePainters": {
+        "cave": {
+            "wall": {
+                "0": [0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+                "4": [4, 4, 4, 4, 4, 5, 5, 6, 6, 7]
+            },
+            "floor": {
+                "8": [8, 8, 8, 8, 8, 8, 9, 9, 9, 10],
+                "24": [24, 24, 24, 24, 24, 25, 25, 25, 26, 26]
+            },
+            "ceiling": {
+                "1": [1]
+            }
+        }
+    },
+    "genInfos": [
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "fog on water",
+            "floorTex": 3,
+            "textureAtlas": "t1",
+            "chance": 0.06,
+            "clusterCount": 1,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.FogSprite",
+                    "scale": 1.75,
+                    "yOffset": 0.4
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Crate in corner",
+            "chance": 0.018,
+            "floorTex": 8,
+            "clusterSpread": 0.15,
+            "placeInCorner": "only",
+            "textureAtlas": "dungeon",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Breakables",
+                    "name": "Crate"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Wandering Monster",
+            "chance": 0.01,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 1,
+            "performanceControlledClustering": "false",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.MonsterSpawner",
+                    "monsterTheme": "CAVE",
+                    "monsterName": ""
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Breakable Spider Eggs",
+            "chance": 0.06,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 1,
+            "clusterSpread": 0.2,
+            "performanceControlledClustering": "true",
+            "placeInCorner": "never",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Breakables",
+                    "name": "Spider_Egg"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Breakable Spider Eggs in Corners",
+            "chance": 1.0,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "placeInCorner": "only",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Breakables",
+                    "name": "Spider_Egg"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Hanging Breakable Spider Eggs",
+            "chance": 0.0325,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 1,
+            "clusterSpread": 0.2,
+            "performanceControlledClustering": "true",
+            "placeInCorner": "never",
+            "attachCeiling": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Breakables",
+                    "name": "Hanging_Spider_Egg"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Hanging Breakable Spider Eggs in Corners",
+            "chance": 1.0,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "placeInCorner": "only",
+            "attachCeiling": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Breakables",
+                    "name": "Hanging_Spider_Egg"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass",
+            "chance": 0.05,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative dead grass",
+            "chance": 0.028,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 3,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks",
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "chance": 0.10,
+            "clusterCount": 2,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Spiderweb",
+            "chance": 0.06,
+            "ceilTex": 0,
+            "textureAtlas": "cave",
+            "clusterCount": 5,
+            "clusterSpread": 0.5,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "foliagePosition": "CEILING",
+                    "tex": 23,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Hanging roots",
+            "chance": 0.035,
+            "ceilTex": 0,
+            "textureAtlas": "cave",
+            "clusterCount": 2,
+            "clusterSpread": 0.45,
+            "attachCeiling": "true",
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 21,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                },
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 22,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Hanging stalactites",
+            "chance": 0.09,
+            "ceilTex": 0,
+            "textureAtlas": "cave",
+            "clusterCount": 2,
+            "clusterSpread": 0.25,
+            "attachCeiling": "true",
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 20,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false",
+                    "yOffset": 0.125
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Stalagtmites",
+            "chance": 0.015,
+            "floorTex": 8,
+            "textureAtlas": "cave",
+            "clusterCount": 3,
+            "clusterSpread": 0.325,
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 16,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Glowing crystals on ceiling",
+            "chance": 0.0325,
+            "ceilTex": 0,
+            "textureAtlas": "cave",
+            "attachCeiling": "true",
+            "clusterSpread": 0.4,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Prefab",
+                    "category": "Cave Sets",
+                    "name": "Hanging_Crystal,Hanging_Crystal,Hanging_Crystal,Hanging_Crystal,Hanging_Crystal_Blue"
+                }
+            ]
+        }
+    ]
+}

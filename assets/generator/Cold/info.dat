@@ -1,0 +1,223 @@
+{
+    "spawnLights": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.Torch",
+            "spriteAtlas": "cold_sprite", "texAnimStart": 4, "texAnimEnd": 5,
+            "lightColor": { "a": 1.0, "b": 0.47, "g": 1.0, "r": 0.12 }
+        }
+    ],
+    "decorations": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 56,
+            "name": "Skull",
+            "yOffset": -0.11
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 74,
+            "name": "Bones",
+            "yOffset": -0.15
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 75,
+            "name": "Bones",
+            "yOffset": -0.15
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+            "itemType": "junk",
+            "tex": 56,
+            "name": "Skull",
+            "yOffset": -0.11
+        }
+    ],
+    "texturePainters": {
+        "cold": {
+            "wall": { },
+            "floor": { "8": [8, 8, 8, 8, 8, 8, 8, 8, 9, 9] },
+            "ceiling": { "11": [11, 11, 11, 11, 11, 11, 10, 10, 10, 10] }
+        }
+    },
+    "genInfos": [
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on floors with texture 2)",
+            "floorTex": 9,
+            "textureAtlas": "cold",
+            "chance": 0.4,
+            "clusterCount": 3,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "cold_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Icicles",
+            "ceilTex": 11,
+            "textureAtlas": "cold",
+            "chance": 0.90,
+            "clusterCount": 2,
+            "clusterSpread": 0.3,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 2,
+                    "spriteAtlas": "cold_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Icicle",
+            "ceilTex": 11,
+            "textureAtlas": "cold",
+            "chance": 0.2,
+            "clusterCount": 1,
+            "clusterSpread": 0.2,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 3,
+                    "spriteAtlas": "cold_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Falling Snow",
+            "ceilTex": 11,
+            "textureAtlas": "cold",
+            "chance": 0.4,
+            "clusterCount": 1,
+            "clusterSpread": 0.2,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.ParticleEmitter",
+                    "particleVelocity": { "z": -0.08 },
+                    "particleRandomSpawnInterval": 800, "particleStartTex": 17,
+                    "particleSpread": { "x": 0.5, "y": 0.5, "z": 4 },
+                    "maxVisibleRadius": 4, "particleSpawnInterval": 1200,
+                    "particlesFloat": true, "particlesCollide": false,
+                    "particleRandomVelocity": {
+                        "x": 0.001, "y": 0.001, "z": 0.002
+                    }, "id": "", "particleLifetime": 400, "particleEndTex": 17,
+                    "particleSpawnCount": 5,
+                    "particleColor": { "a": 1, "b": 1, "g": 1, "r": 1 }
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Cobwebs",
+            "ceilTex": 10,
+            "textureAtlas": "room",
+            "chance": 0.40,
+            "clusterCount": 2,
+            "clusterSpread": 0.4,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "foliagePosition": "CEILING",
+                    "tex": 23,
+                    "spriteAtlas": "cold_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Book_1",
+            "chance": 0.025,
+            "floorTex": 8,
+            "textureAtlas": "room",
+            "clusterSpread": 0.4,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+                    "itemType": "junk",
+                    "collision": { "x": 0.1, "y": 0.1, "z": 0.1 }, "tex": 80,
+                    "inventoryTex": 80, "name": "Book"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Book_2",
+            "chance": 0.025,
+            "floorTex": 8,
+            "textureAtlas": "room",
+            "clusterSpread": 0.4,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+                    "itemType": "junk",
+                    "collision": { "x": 0.1, "y": 0.1, "z": 0.1 }, "tex": 81,
+                    "inventoryTex": 81, "name": "Book"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Book_2",
+            "chance": 0.025,
+            "floorTex": 8,
+            "textureAtlas": "room",
+            "clusterSpread": 0.4,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.items.Decoration",
+                    "itemType": "junk",
+                    "collision": { "x": 0.1, "y": 0.1, "z": 0.1 }, "tex": 82,
+                    "inventoryTex": 82, "name": "Book"
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Ceiling Decor",
+            "chance": 1.0,
+            "ceilTex": 10,
+            "textureAtlas": "room",
+            "clusterCount": 1,
+            "clusterSpread": 0.0,
+            "attachCeiling": true,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Model",
+                    "meshFile": "meshes/Cold/ceiling_decor.obj",
+                    "isSolid": true,
+                    "collision": {
+                        "x": 0.5,
+                        "y": 0.5,
+                        "z": 0.065
+                    },
+                    "isDynamic": false,
+                    "textureFile": "textures/Room/textures.png"
+                }
+            ]
+        }
+    ]
+}

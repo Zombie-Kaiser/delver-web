@@ -1,0 +1,204 @@
+=== breach.dat
+[0.0] We're doomed. There was sound and shaking unlike anything I can describe and a wave of heat that blistered exposed skin.
+[0.1] Now we're trapped. The main paths up to the city are covered in rock... I don't know how we can survive down here much longer.
+[0.2] We found something! The quake shook out a section of the sewer's retaining wall, it exposed something else.
+[0.3] Parts of some kind of structure? How could something like that exist way down here? It must be ages old.
+[0.4] It's decided, we're going to go down there. Maybe there is another way out.
+=== camp-note1.dat
+[0.0] It's right where they said it was, these look like old mage empire ruins. Seems likely from what's left anyway.
+[0.1] Rumor says that in their constant striving for more power, they made their own undoing here. I say, more for us. -N
+=== camp-note2.dat
+[0.0] Notes on Battle, Third Edition
+[0.1] 1: A focused attack will always hit, even in battle a little planning goes a long way.
+[0.2] (focus an attack by holding down the attack button until fully charged, then release)
+[0.3] 2: Take stock of your belongings before charging ahead. put things on a belt for easy access in battle.
+[0.4] (drag items to your belt at the top of the screen for quick access)
+[0.5] 3: Always have an exit, and know where you are. keep a map to avoid getting lost.
+[0.6] (use your map and minimap to view where you have been already, and where to go next)
+=== camp-note3.dat
+[0.0] The others went inside, against my arguments to proceed more cautiously. I fear for the worst. The only thing to do now is to wait for their return.
+[0.1] No word yet from the rest but I've been trying to continue my studies in their absence. So far nothing seems fixed here, no observations have remained stable.
+=== camp-note4.dat
+[0.0] This place is perfect! Even more artifacts than I hoped!
+[0.1] Getting access to them is going to be difficult though. Maybe we can let these dumb adventurers go collect them for us, and scoop them up off of their valiant corpses.
+=== campfireguy.dat
+[0.0] What do we have here, another treasure hunter?
+[0.1] You won't listen to me, they never do, but the best thing for you is to leave.
+[0.2] Not many who go in ever leave that place. Even less with their wits.
+[1.0] I'm a scholar, I was sent here by the guild to study this place but I just have more questions so far.
+[1.1] What happened to the people that lived here?
+[1.2] Why are people drawn here?
+[1.3] Why are my dreams so strange here? I've barely been able to sleep at all.
+[2.0] Are you going in there?
+[2.1] I'm not going to stop you, but I warned you.
+[3.0] You look familiar...
+[3.1] Have you been this way before?
+=== campfireguy2.dat
+[0.0] You're back! There is more to you than it appears it seems.
+[0.1] Our records seem to indicate that the inhabitants of this place exported a unique crystal, and this business made them extremely wealthy.
+[0.2] Did you find those mines? I would expect there to be quite a large network of them.
+[1.0] Did you find the mines? I would expect there to be quite a large network of them.
+=== campfireguy3.dat
+[0.0] Hello again. It's been awhile... and I must say that I feared the worst.
+[0.1] While you are here, I can catch you up on our research.
+[0.2] We think that the convergence of magic energies here must act as a beacon to those sensitive in the arcane.
+[0.3] Older books of ours indicate that this place has been inhabited for much longer than just this castle here.
+[0.4] Could you look for evidence of there being older structures here, under the castle?
+[0.5] Places this powerful have likely been inhabited multiple times over the ages.
+[1.0] Could you look for evidence of there being older structures here, under the castle?
+[1.1] Places this powerful have likely been inhabited multiple times over the ages.
+=== campfireguy4.dat
+[0.0] Somehow, you always manage to return to us.
+[0.1] I've been doing more research in your absence, with some intriguing findings.
+[0.2] It's just a theory, but I have a feeling that this was the location of the lost city of Vyr. That city has no mention of being in the mountains, however.
+[0.3] My thinking is that these mountains are a more recent addition to this landscape. It would take quite an event to raise a mountain chain like this though.
+[1.0] What we know of Vyr is that it rested on an island in a lake.
+[1.1] If this is the place, then whatever happened here was an extremely violent event.
+=== campfireguy5.dat
+[0.0] Well well. Welcome back to us, delver.
+[0.1] Doing any more of your scholarly research at swordpoint?
+[0.2] I would be careful proceeding any further than you have. Something bad happened here in the past. Something powerful.
+[0.3] It wasn't just one time either. There is a unique pattern of disasters happening here.
+[0.4] My opinion in this matter is changing. Now I think the best thing we could probably do is to leave this place.
+[0.5] We should leave while we can, and never look back.
+[1.0] There is a unique pattern of disasters happening here.
+[1.1] We should probably leave this place and never come back.
+=== credits.dat
+[0.0] A game by Chad Cuddigan
+[0.1] and Joshua Skelton
+[1.0] Engine, Game Design and Programming by
+[1.1] Chad Cuddigan
+[2.0] Art, Programming, and Community Management
+[2.1] Joshua Skelton
+[3.0] Music by
+[3.1] White Wolf
+[3.2] Nathan Antony
+[3.3] Gordon McGladdery
+[4.0] Sound by
+[4.1] Power Up Audio
+[5.0] Character Animation by
+[5.1] Hunter Russel
+[6.0] Graphic Design by
+[6.1] SamCube
+[7.0] Special thanks to
+[7.1] The Unofficial Delver Discord
+[7.2] TigSource
+[7.3] Andy Sum
+[7.4] Ben Porter
+[8.0] siskavard
+[8.1] Arsenio Dev
+[8.2] Hawaii_Beach
+[8.3] Pixel Profligate
+[8.4] Drakensin
+[8.5] Mike Ratzlaff
+[9.0] And many more than we can mention here.
+[10.0] But most importantly, you!
+[11.0] Thanks for playing! <
+[12.0] 
+[13.0] The dungeon is becoming angrier...
+=== dungeonNotes/castle.dat
+[0.0] Matz, things further inside the ruins seem to be intact - it's just as we hoped! The location is off from where the old maps said that the mage king's tower would,
+[0.1] and only the lower floors and basements are left intact, but all of the things we're finding indicate that this is indeed the place.
+[1.0] Send back word to the Heralds, those scholars actually found the place. We'll sneak down ahead of the main group, if this tower is here that means one of the artifacts is likely here as well.
+[2.0] Nobody has been in these ruins for centuries, what a find! The mountains ringing the tower have kept people away, the kingdom probably had portals to get here easier than we did.
+[3.0] Send some men back up to move the expedition supplies, they'll be safer in here than sitting outside in the rain.
+[4.0] We've found some intact libraries but the intact books are written in something that looks like Oldhand, translation will be slow going.
+[5.0] Jeran, some of our porters have gone missing. Did you send them on some errand? We're going to need them back to clear out some of this rubble.
+[6.0] Expedition supply tally: 5 crates of salted pork, 6 bundles of trail bread, and 4 cases of barley ale.
+[7.0] Exploring the ruins has been slow going as of yet, I fear we're pushing the men too hard. Some have already left us, probably to head back home.
+[7.1] If only we could get a good nights sleep, things would go faster. Everyone is so on edge that they're jumping at shadows.
+[8.0] I don't care what that so called scholar Matz says, something is alive down here and I don't mean those insufferable bats.
+[8.1] Last night I heard scraping at the door of the barracks we had set up in, but whatever it was cleared out as soon as I set out after it.
+[9.0] Start lighting the torches as we go, exploring will be easier if we can see without these lanterns and we can keep track of where we've been.
+[10.0] I haven't had one good night of sleep since stepping foot in this place, I'm getting so frayed that I keep hearing whispers, even when nobody is around.
+[11.0] Jeran, one of the guardsman went berzerk! He started yelling about how we were all going to die, and cut down two men before escaping further into the ruins.
+[11.1] One of the victims died immediately, we've bandaged up the other but he's going to need one of those potions from the emergency supplies to keep infections away.
+[12.0] We were right! Those fools at the Imperium can eat a boot, this one mage king did rule over all of the free cities of the time.
+[12.1] There must have been portals open to all of the cities, making this tower the center of trade.
+[13.0] Jeran's team found the entrance to what appears to be the mines under the basements. Those will probably be worth exploring later.
+[13.1] For now, lets focus on the areas that were inhabited. There's enough there to keep us busy for weeks.
+[14.0] Watch out for traps! Some of these passages have floor plates linked to some sort of arcane security system.
+[14.1] Bron stepped on one and dissapeared in a flash of light, thankfully we ran into him later unharmed just very confused.
+[15.0] Any news on that missing group? We checked outside and things looked clear, maybe they started back home.
+[16.0] This place begs so many questions, the university will have a presence here for a long time once the news gets out.
+[17.0] We found some evidence of the first expedition, they definitely made it here. We've found scraps of their notes scattered about and some of their supplies, but no bodies so far. It's like they just vanished.
+[18.0] Stay away! This place is a nightmare, we should have never come. The things we're stirring up here should have stayed buried forever.
+[18.1] Most of the expedition is missing now, the rest of us are slowly losing our minds. We tried to turn back, but the passages themselves taunt us now.
+[19.0] All of our maps are useless! We carefully marked our path on the way in but on the way back out nothing is matching up.
+[19.1] This place does not want us to leave!
+=== end.dat
+[0.0] Now you have walked the paths of the many, and learned much. You have seen a multitude of futures that could have been.
+[0.1] Where is here? Or when? The Yithidians learned to warp and mix the planes of existence.
+[0.2] Only the knowledge gained here in your trial can leave with you.
+[0.3] Remember what you have learned, and use it well.
+[0.4] Because somewhere, in some life, those skills and persistence will be needed again.
+=== headstone.dat
+[0.0] The inscription is too worn to make out.
+[1.0] Who was this?
+=== hoodie.dat
+[0.0] Ahhhh... it seems we have a visitor. Yes we do.
+[0.1] It does not look like a traveller of the deep roads... but it is not under a thrall like the others here, is it? How curious.
+[0.2] Long ago I watched those like you dig deep into the earth here, disturbing that which should have been left forgotten. Their work lies ahead down this path.
+[0.3] Anyway, it is not here for stories... Perhaps it would like to trade instead?
+[0.4] We have studied those lost magics that reach beyond this dimension. I can offer this, for a price of course.
+[1.0] Ahhh... it returns. Does it have need to pierce the veils of worlds?
+=== hoodie2.dat
+[0.0] The traveler is back... Perhaps it is in need of our assistance?
+[0.1] We have traveled the multitudes ourselves. I can offer this knowledge, for a price of course.
+[1.0] Ahhh... it returns. Does it have need to pierce the veils of worlds?
+=== hoodie_sewer.dat
+[0.0] Ahhhh... it seems we have met it again.
+[0.1] It must be a tenacious thing to make it this far into the earth.
+[0.2] Anyway, it is not one for musing... Perhaps it would like to trade instead?
+[0.3] We have for sale words from dead stars. Even gone their stories are powerful.
+[1.0] Is it a Guardian? There are stories of fading worlds and those who tried to help them.
+[1.1] Unlikely. The energies are wrong. Anyway, does it have need of more stories?
+[2.0] Ahhh... it returns. Does it have need of more stories?
+=== jeff.dat
+[0.0] Hey buddy! Did you meet my brother Joff outside?
+[0.1] I'm Jeff! The 9th most important rule of business is to be bold, so I'm running our new startup location down here.
+[0.2] All of our weapons and magical artifacts are locally sourced!
+[1.0] All of our weapons and magical artifacts are locally sourced!
+=== jeff2.dat
+[0.0] Hey buddy! Nice to see you around!
+[0.1] Don't tell Joff, but it's nice to see anyone around. This place doesn't get a ton of foot traffic.
+[0.2] Those folk upstairs don't seem to take kindly to my snooping around... and taking their stuff... so I mostly stick around here with the weird robed guy.
+[0.3] He's not one for conversation. Mostly sticks to his books. Strange fellow, but he hasn't tried to murder me yet!
+[0.4] Sorry for talking your ear off. Want to buy something?
+[1.0] All of our weapons and magical artifacts are locally sourced!
+=== jeff3.dat
+[0.0] You again? I didn't expect to see you. Not many return customers around here.
+[0.1] To be honest, it's kind of lonely down here...
+[0.2] I wish I could talk to Joff again. He always knew what to say. I kind of messed that up though.
+[0.3] But there's no way out of here that I've found, could you let me know if you find a way?
+[1.0] There's no way out of here that I've found, could you let me know if you find a way?
+=== joff.dat
+[0.0] Hey adventurer! Are you planning on going into those ruins? It's dangerous!
+[0.1] If I were you, I'd want to be stocked up on supplies before going into that place...
+[0.2] Thankfully, your pal Joff here sells everything you could possibly need!
+[1.0] Fortune favors the prepared! Supplies are limited.
+=== joff2.dat
+[0.0] Hey adventurer, Didn't you go into those ruins?
+[0.1] Anyways, welcome back! You better stock up while you are here.
+[1.0] Fortune favors the prepared! Supplies are limited.
+=== joff3.dat
+[0.0] Hey... Did you ever run into my brother while you were down there?
+[0.1] We had a bit of a falling out... and he decided to try his luck inside.
+[0.2] I haven't seen him since then. People that go in there don't tend to leave, like you can.
+[0.3] It would be nice to see him again someday... Anyway, want to buy something?
+[1.0] It would be nice to see Jeff again someday... Anyway, want to buy something?
+=== later.dat
+[0.0] It has done well to find us. The place is right, but the time is not.
+[0.1] This place... it is not where things started, but it is here where they were given shape.
+[0.2] For now the gate holds back the cold and the dark, but no door can stay sealed forever.
+[0.3] And forever is not that long a wait, for things such as us.
+=== quietguy.dat
+[0.0]       ...
+=== tutorial_note1.dat
+[0.0] - four days northwest, up old mountain trail 
+ - ravine at end of lake, statues and ruins 
+ - buyer back in Kyr?
+=== wizard2.dat
+[0.0] Welcome back.
+[0.1] I have some more scrolls prepared, if you're in need of some arcane intervention.
+[1.0] I have some more scrolls prepared, if you're in need of some arcane intervention.

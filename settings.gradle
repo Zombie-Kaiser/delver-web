@@ -1,0 +1,2 @@
+include 'core', 'html', 'converter'
+rootProject.name = 'delver_web'

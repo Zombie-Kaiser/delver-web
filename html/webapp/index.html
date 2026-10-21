@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delver</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <style>
+        body {
+          justify-content: center;
+          align-items: center;
+          background: #000;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+          overflow: hidden
+        }
+        #canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: block;
+        }
+        #progress {
+          position: fixed;
+          display: block;
+          box-sizing: border-box;
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          left: 50%;
+          width: 500px;
+          height: 80px;
+          margin-top: -40px;
+          margin-left: -250px;
+        }
+        #progress-img {
+          padding-bottom: 5px;
+        }
+        #progress-box {
+          background: rgba(255,255,255,0.1);
+          justify-content: flex-start;
+          border: 2px solid #fff;
+          align-items: center;
+          position: relative;
+          padding: 0px 5px;
+          display: flex;
+          height: 30px;
+          width: 487px;
+          float: left;
+          clear: both;
+        }
+        #progress-bar {
+          display: block;
+          box-shadow: 0 10px 30px -10px #fff;
+          background: #fff;
+          height: 20px;
+          width: 0%;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onload="start()">
+<div>
+    <div id="progress">
+        <img id="progress-img" src="startup-logo.png">
+        <div id="progress-box">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    async function start() {
+        main()
+    }
+    var maxPercentage = 25;
+    var delay = 500;
+    var bar = document.getElementById("progress-bar");
+    if (bar) {
+    var barStyle = bar.style;
+    barStyle.width = "0%";
+    function barUpdater() {
+      var percentage = parseInt(barStyle.width, 10);
+      if (percentage < maxPercentage) {
+        percentage++;
+        barStyle.width = percentage + "%";
+        delay += 25;
+        setTimeout(barUpdater, delay);
+      }
+    }
+    }
+    setTimeout(barUpdater, delay);
+</script>
+<script>
+(function() {
+    var diagBox = null;
+    var diag = { tex: 0, glerr: 'none', errs: [] };
+    try {
+        diagBox = document.createElement('div');
+        diagBox.style.cssText = 'position:fixed;left:4px;bottom:4px;z-index:99;color:#f88;background:rgba(0,0,0,0.55);font:11px monospace;padding:2px 6px;pointer-events:none;white-space:pre;max-width:95vw;overflow:hidden';
+        document.body.appendChild(diagBox);
+    } catch (e) { diagBox = null; }
+    function note(type, text) {
+        var d = document.createElement('div');
+        d.setAttribute('data-log', type);
+        text = String(text);
+        if (text.length > 4000) text = text.substring(0, 4000) + ' ...[truncated ' + text.length + ' chars]';
+        d.textContent = type + ': ' + text;
+        document.body.appendChild(d);
+        if (diag.errs && (type === 'error' || type === 'JS-ERROR' || type === 'JS-REJECT' || type === 'RES-ERROR' || type === 'ERR-CREATE')) {
+            diag.errs.push((type + ' ' + text).substring(0, 150));
+            if (diag.errs.length > 6) diag.errs.shift();
+        }
+    }
+    Error.prepareStackTrace = function(err, frames) {
+        try {
+            var fs = [];
+            for (var i = 0; i < frames.length && i < 60; i++) fs.push(String(frames[i]));
+            note('ERR-CREATE', String(err).substring(0, 200) + ' ||| ' + fs.join(' <- '));
+        } catch (e) {}
+        return String(err) + '\n' + frames.map(function(f) { return '    at ' + String(f); }).join('\n');
+    };
+    window.onerror = function(msg, src, line, col, err) {
+        note('JS-ERROR', msg + ' @ ' + (src || '') + ':' + line + ':' + col);
+        if (err && err.stack) note('JS-STACK', err.stack);
+        if (err && err.$jsException && err.$jsException.stack) note('JS-ORIG-STACK', err.$jsException.stack);
+        return false;
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+        note('JS-REJECT', String(e.reason));
+    });
+    var origLog = console.log;
+    var origErr = console.error;
+    console.log = function() { note('log', Array.prototype.join.call(arguments, ' ')); origLog.apply(console, arguments); };
+    console.error = function() { note('error', Array.prototype.join.call(arguments, ' ')); origErr.apply(console, arguments); };
+    var origWarn = console.warn ? console.warn.bind(console) : null;
+    console.warn = function() { note('warn', Array.prototype.join.call(arguments, ' ')); if (origWarn) origWarn.apply(console, arguments); };
+    var origInfo = console.info ? console.info.bind(console) : null;
+    console.info = function() { note('info', Array.prototype.join.call(arguments, ' ')); if (origInfo) origInfo.apply(console, arguments); try { window.__gameMsg(Array.prototype.join.call(arguments, ' ')); } catch (e) {} };
+    console.debug = function() { note('debug', Array.prototype.join.call(arguments, ' ')); };
+    console.trace = function() { note('trace', Array.prototype.join.call(arguments, ' ')); };
+    window.addEventListener('error', function(e) {
+        if (e && e.target && e.target.src) note('RES-ERROR', String(e.target.src));
+    }, true);
+     var counters = { rafReg: 0, rafFire: 0, stReg: 0, stFire: 0 };
+     var AUTOTEST = /[?&]autotest=1/.test(location.search) || /HeadlessChrome/.test(navigator.userAgent);
+     var origST = window.setTimeout.bind(window);
+     if (AUTOTEST) {
+         window.requestAnimationFrame = function(cb) {
+             counters.rafReg++;
+             if (counters.rafReg <= 3) note('PROBE', 'raf-reg #' + counters.rafReg);
+             return origST(function() {
+                 counters.rafFire++;
+                 if (counters.rafFire <= 3) note('PROBE', 'raf-fire #' + counters.rafFire);
+                 return cb(Date.now());
+             }, 16);
+         };
+     }
+     var origST2 = window.setTimeout.bind(window);
+     window.setTimeout = function(cb, ms) {
+         counters.stReg++;
+         if (counters.stReg <= 3) note('PROBE', 'settimeout-reg #' + counters.stReg + ' ms=' + ms);
+         return origST2(function() {
+             counters.stFire++;
+             return cb();
+         }, ms);
+     };
+    var origXhrOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(m, u) {
+        note('XHR', m + ' ' + u);
+        return origXhrOpen.apply(this, arguments);
+    };
+    try {
+        var origIdbOpen = indexedDB.open.bind(indexedDB);
+        indexedDB.open = function(name, ver) {
+            note('IDB', 'open ' + name);
+            var r = origIdbOpen(name, ver);
+            r.addEventListener('success', function() { note('IDB', 'open-ok ' + name); });
+            r.addEventListener('error', function() { note('IDB', 'open-err ' + name); });
+            return r;
+        };
+    } catch (e) { note('PROBE', 'idb wrap fail ' + e); }
+    setTimeout(function() {
+        var d = document.createElement('div');
+        d.id = 'AUTOTEST-DONE';
+        var prog = document.getElementById('progress');
+        var progStyle = prog ? (prog.style && prog.style.display) : 'no-elem';
+         d.textContent = 'AUTOTEST-DONE rafReg=' + counters.rafReg + ' rafFire=' + counters.rafFire +
+             ' stReg=' + counters.stReg + ' stFire=' + counters.stFire + ' progressDisplay=' + progStyle +
+             ' TEX=' + diag.tex + ' GLERR=' + diag.glerr + ' WASM=' + (typeof window.Gdx !== 'undefined' ? 'ok' : 'missing') +
+             ' canvas=' + gameCanvas.width + 'x' + gameCanvas.height;
+        document.body.appendChild(d);
+    }, 30000);
+     note('PROBE', 'start readyState=' + document.readyState);
+     var gameCanvas = document.getElementById('canvas');
+     function fitCanvas() {
+         try {
+             var w = window.innerWidth, h = window.innerHeight;
+             if (w > 0 && h > 0 && (gameCanvas.width !== w || gameCanvas.height !== h)) {
+                 gameCanvas.width = w;
+                 gameCanvas.height = h;
+             }
+         } catch (e) {}
+     }
+     fitCanvas();
+     var lastStFire = 0;
+     var resizeTimer = null;
+     window.addEventListener('resize', function() {
+         if (resizeTimer) clearTimeout(resizeTimer);
+         resizeTimer = setTimeout(function() {
+             resizeTimer = null;
+             if (counters.stFire !== lastStFire) {
+                 lastStFire = counters.stFire;
+                 fitCanvas();
+             }
+         }, 250);
+     });
+     try {
+         var wrapTex = function(proto) {
+             if (!proto) return;
+             var orig = proto.texImage2D;
+             if (!orig) return;
+             proto.texImage2D = function() {
+                 diag.tex++;
+                 return orig.apply(this, arguments);
+             };
+         };
+         wrapTex(window.WebGLRenderingContext && window.WebGLRenderingContext.prototype);
+         wrapTex(window.WebGL2RenderingContext && window.WebGL2RenderingContext.prototype);
+         var glProto = (window.WebGL2RenderingContext || window.WebGLRenderingContext).prototype;
+         var origGetErr = glProto.getError;
+         glProto.getError = function() {
+             var e = origGetErr.call(this);
+             if (e !== 0) diag.glerr = 'GL_0x' + e.toString(16);
+             return e;
+         };
+     } catch (e) { note('PROBE', 'gl wrap fail ' + e); }
+     if (diagBox) {
+         setInterval(function() {
+             try {
+                 diagBox.textContent = 'TEX=' + diag.tex + ' GLERR=' + diag.glerr +
+                     ' WASM=' + (typeof window.Gdx !== 'undefined' ? 'ok' : 'missing') +
+                     (diag.errs.length ? ' || ' + diag.errs.join(' || ') : '');
+             } catch (e) {}
+         }, 1000);
+     }
+     function synthClick() {
+         try {
+             var cv = document.getElementById('canvas');
+             var r = cv ? cv.getBoundingClientRect() : {left: 0, top: 0, width: 100, height: 100};
+             var x = r.left + r.width / 2, y = r.top + r.height / 2;
+             var opts = {bubbles: true, cancelable: true, view: window, clientX: x, clientY: y, button: 0};
+             document.dispatchEvent(new MouseEvent('mousedown', opts));
+             document.dispatchEvent(new MouseEvent('mouseup', opts));
+             note('SYNTH', 'click at ' + Math.round(x) + ',' + Math.round(y));
+         } catch (e) { note('SYNTH', 'click fail ' + e); }
+     }
+     function synthKey() {
+         try {
+             document.dispatchEvent(new KeyboardEvent('keydown', {bubbles: true, cancelable: true, key: 'Enter', code: 'Enter', charCode: 13}));
+             document.dispatchEvent(new KeyboardEvent('keypress', {bubbles: true, cancelable: true, key: 'Enter', code: 'Enter', charCode: 13}));
+             document.dispatchEvent(new KeyboardEvent('keyup', {bubbles: true, cancelable: true, key: 'Enter', code: 'Enter', charCode: 13}));
+             note('SYNTH', 'key Enter');
+         } catch (e) { note('SYNTH', 'key fail ' + e); }
+     }
+     if (AUTOTEST) { setTimeout(synthClick, 45000); setTimeout(synthKey, 60000); }
+     function synthClickAt(x, y) {
+         try {
+             var cv = document.getElementById('canvas');
+             var opts = {bubbles: true, cancelable: true, view: window, clientX: x, clientY: y, button: 0};
+             cv.dispatchEvent(new MouseEvent('mousedown', opts));
+             cv.dispatchEvent(new MouseEvent('mouseup', opts));
+             note('SYNTH', 'click ' + x + ',' + y);
+         } catch (e) { note('SYNTH', 'click fail ' + e); }
+     }
+     function synthKeyTap(name, kc, cc) {
+         try {
+             var o = {bubbles: true, cancelable: true, view: window, key: name, code: name, keyCode: kc, charCode: cc || 0};
+             document.dispatchEvent(new KeyboardEvent('keydown', o));
+             document.dispatchEvent(new KeyboardEvent('keyup', o));
+             note('SYNTH', 'tap ' + name);
+         } catch (e) { note('SYNTH', 'tap fail ' + e); }
+     }
+     function synthKeyHold(name, kc, ms) {
+         try {
+             var o = {bubbles: true, cancelable: true, view: window, key: name, code: name, keyCode: kc, charCode: 0};
+             document.dispatchEvent(new KeyboardEvent('keydown', o));
+             note('SYNTH', 'down ' + name);
+             setTimeout(function() {
+                 document.dispatchEvent(new KeyboardEvent('keyup', o));
+                 note('SYNTH', 'up ' + name);
+             }, ms || 150);
+         } catch (e) { note('SYNTH', 'hold fail ' + e); }
+     }
+     var gameState = { menuShows: 0, overlayShows: 0, menuNav: false, navSent: false, gameShown: false, moved: false, paused: false, saved: false, quitNav: false, round2: false, r2slot: false };
+     window.__gameMsg = function(m) {
+         if (m.indexOf('MainMenuScreen: LibGdx Show') >= 0) gameState.menuShows++;
+         if (m.indexOf('Getting savegames') >= 0) gameState.overlayShows++;
+         if (m.indexOf('DelverGameScreen') >= 0) gameState.gameShown = true;
+         if (m.indexOf('saving game!') >= 0) gameState.saved = true;
+     };
+     function dumpIdb() {
+         try {
+             if (!indexedDB.databases) { note('IDB-DUMP', 'databases() unsupported'); return; }
+             indexedDB.databases().then(function(dbs) {
+                 var names = dbs.map(function(d) { return d.name; });
+                 note('IDB-DUMP', 'databases: ' + names.join(','));
+                 dbs.forEach(function(dbInfo) {
+                     var req = indexedDB.open(dbInfo.name);
+                     req.onsuccess = function() {
+                         var db = req.result;
+                         var stores = Array.prototype.slice.call(db.objectStoreNames);
+                         note('IDB-DUMP', dbInfo.name + ' stores: ' + stores.join(','));
+                         stores.forEach(function(st) {
+                             try {
+                                 var tx = db.transaction(st, 'readonly');
+                                 var os = tx.objectStore(st);
+                                 var countReq = os.count();
+                                 countReq.onsuccess = function() {
+                                     note('IDB-DUMP', dbInfo.name + '/' + st + ' count=' + countReq.result);
+                                 };
+                                 if (true) {
+                                     var curReq = os.openCursor(null, 'next');
+                                     var shown = 0;
+                                     curReq.onsuccess = function() {
+                                         var cur = curReq.result;
+                                         if (cur && shown < 60) {
+                                             note('IDB-DUMP', '  key: ' + String(cur.key).substring(0, 100));
+                                             shown++;
+                                             cur.continue();
+                                         }
+                                     };
+                                 }
+                             } catch (e) {}
+                         });
+                         db.close();
+                     };
+                 });
+             }).catch(function(e) { note('IDB-DUMP', 'err ' + e); });
+         } catch (e) { note('IDB-DUMP', 'exception ' + e); }
+     }
+     if (AUTOTEST) {
+     setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 60000);
+     var navPoll = setInterval(function() {
+         if (gameState.menuShows >= 1 && !gameState.menuNav) {
+             gameState.menuNav = true;
+             note('SYNTH', 'nav: menu play');
+             synthKeyHold('ArrowDown', 40, 300);
+             setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 2000);
+         }
+         if (gameState.overlayShows >= 1 && !gameState.navSent) {
+             gameState.navSent = true;
+             note('SYNTH', 'nav: slot select');
+             synthKeyHold('ArrowDown', 40, 300);
+             setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 2000);
+         }
+         if (gameState.gameShown && !gameState.moved) {
+             gameState.moved = true;
+             note('SYNTH', 'gameplay: movement test');
+             synthKeyHold('ArrowDown', 40, 1000);
+             setTimeout(function() { synthKeyHold('w', 87, 6000); }, 1500);
+         }
+         if (gameState.moved && !gameState.paused) {
+             gameState.paused = true;
+             note('SYNTH', 'pause test: ESC hold');
+             setTimeout(function() { synthKeyHold('Escape', 27, 800); }, 9000);
+         }
+         if (gameState.paused && !gameState.quitNav) {
+             gameState.quitNav = true;
+             note('SYNTH', 'quit nav: pause -> quit (3 downs)');
+             setTimeout(function() {
+                 synthKeyHold('ArrowDown', 40, 400);
+                 setTimeout(function() { synthKeyHold('ArrowDown', 40, 400); }, 2000);
+                 setTimeout(function() { synthKeyHold('ArrowDown', 40, 400); }, 4000);
+                 setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 6000);
+             }, 12000);
+         }
+         if (gameState.menuShows >= 2 && !gameState.round2) {
+             gameState.round2 = true;
+             note('SYNTH', 'ROUND2: back at menu, saved=' + gameState.saved);
+             setTimeout(dumpIdb, 2000);
+             setTimeout(function() {
+                 synthKeyHold('ArrowDown', 40, 300);
+                 setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 2000);
+             }, 8000);
+         }
+         if (gameState.round2 && gameState.overlayShows >= 2 && !gameState.r2slot) {
+             gameState.r2slot = true;
+             note('SYNTH', 'ROUND2: overlay open, select slot to LOAD');
+             setTimeout(function() {
+                 synthKeyHold('ArrowDown', 40, 300);
+                 setTimeout(function() { synthKeyTap('Enter', 13, 13); }, 2000);
+             }, 4000);
+         }
+     }, 2000);
+     setTimeout(function() { clearInterval(navPoll); dumpIdb(); note('SYNTH', 'navPoll end state=' + JSON.stringify(gameState)); }, 260000);
+     }
+     setTimeout(function() { note('PROBE', 'timeout-100ms ok'); }, 100);
+    requestAnimationFrame(function() { note('PROBE', 'raf1 ok'); });
+    requestAnimationFrame(function() { requestAnimationFrame(function() { note('PROBE', 'raf2 ok'); }); });
+    try {
+        var idbReq = indexedDB.open('probe_db', 1);
+        idbReq.onupgradeneeded = function() { note('PROBE', 'idb upgrade'); };
+        idbReq.onsuccess = function() { note('PROBE', 'idb open ok'); };
+        idbReq.onerror = function() { note('PROBE', 'idb open err ' + (idbReq.error && idbReq.error.name)); };
+        idbReq.onblocked = function() { note('PROBE', 'idb blocked'); };
+    } catch (e) { note('PROBE', 'idb exception ' + e); }
+})();
+</script>
+<script type="text/javascript" charset="utf-8" src="teavm/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+    "lakes": [],
+    "secretDoors": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.Door",
+            "tex": 0,
+            "collision": { "x": 0.1, "y": 0.5, "z": 0.96 },
+            "doorOpenType": "SLIDE_UP",
+            "openSound": "door_stone_open.mp3",
+            "closingSound": "door_stone_close.mp3",
+            "closedSound": "door_stone_closed.mp3",
+            "doorMesh": "meshes/door_2.obj",
+            "doorTexture": "textures/Cave/doors.png",
+            "breakable": false
+        }
+    ],
+    "prefabs": { },
+    "mainRooms": [
+        "default"
+    ],
+    "hallwayType": "CAVE",
+    "adjustHeights": false,
+    "defaultMaterial": {
+        "texAtlas": "cave",
+        "tex": 0
+    },
+    "rooms": {
+        "default": {
+            "type": "CAVE",
+            "floorPrefabs": [],
+            "wallPrefabs": [],
+            "floors": [
+                {
+                    "texAtlas": "cave",
+                    "tex": 8
+                }
+            ],
+            "walls": [
+                {
+                    "texAtlas": "cave",
+                    "tex": 0
+                }
+            ],
+            "ceilings": [
+                {
+                    "texAtlas": "cave",
+                    "tex": 0
+                }
+            ]
+        }
+    }
+}

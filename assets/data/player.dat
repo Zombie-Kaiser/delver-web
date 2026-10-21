@@ -1,0 +1,33 @@
+{
+    "$schema": "http://delverengine.com/jsonschema/current/dungeoneer/entities/Player.schema.json",
+    "class": "com.interrupt.dungeoneer.entities.Player",
+    "maxHp": 8,
+    "hp": 8,
+    "startingInventory": [
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemName": "Iron dagger"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemName": "Leather armor"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemName": "Leather pants",
+            "itemCondition": "worn"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemType": "potions"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemType": "wands"
+        },
+        {
+            "class": "com.interrupt.dungeoneer.entities.ItemSpawner",
+            "itemType": "food"
+        }
+    ]
+}

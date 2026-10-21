@@ -1,0 +1,15 @@
+dependencies {
+  implementation project(':core')
+  implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+  implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+  implementation "com.esotericsoftware:kryo:$kryoVersion"
+}
+
+task convertLevels(type: JavaExec) {
+  dependsOn classes
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'com.interrupt.dungeoneer.converter.ConvertLevels'
+  workingDir = rootProject.projectDir
+  args 'assets'
+  jvmArgs '-Xmx3G'
+}

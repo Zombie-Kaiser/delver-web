@@ -1,0 +1,60 @@
+{
+    "difficultyLevel": 3,
+    "sortOrder": 4,
+    "name": "Cave",
+    "floors": 2,
+    "levelTemplates": [
+        {
+            "class": "com.interrupt.dungeoneer.game.Level",
+            "darkness": 1,
+            "viewDistance": 40.0,
+            "theme": "CAVE",
+            "alternateMonsterThemes": [
+                "SEWER"
+            ],
+            "fogStart": 3.471,
+            "fogEnd": 27.950,
+            "fogColor": { "r": 0.0, "g": 0.467, "b": 0.251 },
+            "generated": "true",
+            "roomGeneratorType": "CAVE_ROOMS",
+            "roomGeneratorChance": 0.4,
+            "music": "03_shimmering_caves.mp3,Nathan-2.mp3",
+            "actionMusic": "chase_caves.mp3,DK-6.mp3",
+            "ambientSound": "env_indoor.mp3",
+            "ambientSoundVolume": 0.15
+        }
+    ],
+    "transitionLevel": {
+        "class": "com.interrupt.dungeoneer.game.Level",
+        "levelName": "Lost City",
+        "darkness": 1,
+        "fogStart": 0,
+        "fogEnd": 14,
+        "fogColor": {
+            "r": 0.17,
+            "g": 0.21,
+            "b": 0.71
+        },
+        "skyLightColor": {
+            "r": 0.15,
+            "g": 0.15,
+            "b": 0.3
+        },
+        "viewDistance": 30.0,
+        "theme": "COLD",
+        "generated": "false",
+        "wallPainter": {
+        },
+        "floorPainter": {
+        },
+        "ceilPainter": {
+        },
+        "levelFileName": "levels/Cold/coldarea.bin",
+        "spawnMonsters": "false",
+        "music": "DK-7.mp3",
+        "actionMusic": "chase_ruins.mp3,DK-6.mp3",
+        "loopMusic": "true",
+        "ambientSound": "env_indoor.mp3",
+        "ambientSoundVolume": 0.6
+    }
+}

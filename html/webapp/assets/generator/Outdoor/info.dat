@@ -1,0 +1,228 @@
+{
+    "genInfos": [
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "fog on grass",
+            "floorTex": 27,
+            "textureAtlas": "t1",
+            "chance": 0.05,
+            "clusterCount": 1,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.FogSprite",
+                    "fogColor": { "r": 1.0, "b": 1.0, "g": 1.0, "a": 0.8 },
+                    "scale": 1.5
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "fog on water",
+            "floorTex": 3,
+            "textureAtlas": "t1",
+            "chance": 0.08,
+            "clusterCount": 1,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.FogSprite",
+                    "scale": 1.25,
+                    "yOffset": 0.38
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on dirt texture)",
+            "floorTex": 48,
+            "chance": 0.09,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass (will spawn on dirt texture)",
+            "chance": 0.002,
+            "floorTex": 48,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass (will spawn on grass texture)",
+            "chance": 0.13,
+            "floorTex": 27,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on grass texture)",
+            "floorTex": 27,
+            "chance": 0.12,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass (will spawn on grass edges)",
+            "chance": 0.08,
+            "floorTex": 45,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on grass edges)",
+            "floorTex": 45,
+            "chance": 0.11,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass (will spawn on grass corners)",
+            "chance": 0.09,
+            "floorTex": 41,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on grass corners)",
+            "floorTex": 41,
+            "chance": 0.14,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Decorative grass (will spawn on grass corners)",
+            "chance": 0.09,
+            "floorTex": 49,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Foliage",
+                    "tex": 1,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "rocks (will spawn on grass corners)",
+            "floorTex": 49,
+            "chance": 0.14,
+            "clusterCount": 4,
+            "clusterSpread": 0.4,
+            "performanceControlledClustering": true,
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 0,
+                    "spriteAtlas": "dungeon_sprite",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "class": "com.interrupt.dungeoneer.generator.GenInfo",
+            "comment": "Hanging stalactites",
+            "chance": 0.4,
+            "ceilTex": 4,
+            "textureAtlas": "t1",
+            "clusterCount": 2,
+            "clusterSpread": 0.3,
+            "attachCeiling": "true",
+            "performanceControlledClustering": "true",
+            "spawns": [
+                {
+                    "class": "com.interrupt.dungeoneer.entities.Sprite",
+                    "tex": 20,
+                    "spriteAtlas": "cave_sprite",
+                    "isDynamic": "false",
+                    "yOffset": 0.125
+                }
+            ]
+        }
+    ]
+}

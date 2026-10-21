@@ -1,0 +1,991 @@
+{
+    "$schema": "http://delverengine.com/jsonschema/current/managers/MonsterManager.schema.json",
+    "monsters": {
+        "CAVE": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "name": "SPIDER",
+                "speed": 0.009,
+                "maxHp": 4,
+                "atk": 4,
+                "bloodType": "Insect",
+                "bloodPoolDecal": {"tex": 25, "artType": "sprite"},
+                "bloodSplatterDecal": {"isActive": false},
+                "stepHeight": 1,
+                "canOpenDoors": false,
+                "alertSound": "mobs/spider/en_spider_alert_01.mp3,mobs/spider/en_spider_alert_02.mp3,mobs/spider/en_spider_alert_03.mp3",
+                "attackSound": "mobs/spider/en_spider_attack_01.mp3,mobs/spider/en_spider_attack_02.mp3,mobs/spider/en_spider_attack_03.mp3",
+                "dieSound": "mobs/spider/en_spider_die_01.mp3,mobs/spider/en_spider_die_02.mp3,mobs/spider/en_spider_die_03.mp3",
+                "hurtSound": "mobs/spider/en_spider_hurt_01.mp3,mobs/spider/en_spider_hurt_02.mp3,mobs/spider/en_spider_hurt_03.mp3",
+                "idleSound": "mobs/spider/en_spider_idle_01.mp3,mobs/spider/en_spider_idle_02.mp3,mobs/spider/en_spider_idle_03.mp3",
+                "walkAnimation": {"start": 32, "end": 35, "speed": 30},
+                "attackAnimation": {"start": 36, "end": 40, "speed": 30, "actions": {"39": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 45, "end": 48, "speed": 22},
+                "dieAnimation": {"start": 49, "end": 51, "speed": 30},
+                "spriteAtlas": "entities_cave"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "name": "BAT",
+                "floating": true,
+                "speed": 0.002,
+                "maxHp": 4,
+                "atk": 3,
+                "chasetarget": false,
+                "yOffset": -0.25,
+                "hasAttackAnim": false,
+                "canOpenDoors": false,
+                "painChance": 1,
+                "alertSound": "mobs/bat/en_bat_alert_01.mp3,mobs/bat/en_bat_alert_02.mp3,mobs/bat/en_bat_alert_03.mp3",
+                "attackSound": "mobs/bat/en_bat_attack_01.mp3,mobs/bat/en_bat_attack_02.mp3,mobs/bat/en_bat_attack_03.mp3",
+                "dieSound": "mobs/bat/en_bat_death_01.mp3,mobs/bat/en_bat_death_02.mp3,mobs/bat/en_bat_death_03.mp3",
+                "hurtSound": "mobs/bat/en_bat_hurt_01.mp3,mobs/bat/en_bat_hurt_02.mp3,mobs/bat/en_bat_hurt_03.mp3",
+                "idleSound": "mobs/bat/en_bat_idle_01.mp3,mobs/bat/en_bat_idle_02.mp3,mobs/bat/en_bat_idle_03.mp3",
+                "walkAnimation": {"start": 32, "end": 35, "speed": 30},
+                "attackAnimation": {
+                    "start": 36,
+                    "end": 41,
+                    "speed": 30,
+                    "actions": {
+                        "37": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.07}}],
+                        "39": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 42, "end": 43, "speed": 22},
+                "dieAnimation": {"start": 43, "end": 45, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "WORM",
+                "speed": 0.0025,
+                "atk": 2,
+                "maxHp": 2,
+                "attackStartDistance": 1.75,
+                "bloodType": "Slime",
+                "bloodPoolDecal": {"tex": 24, "artType": "sprite"},
+                "bloodSplatterDecal": {"isActive": false},
+                "damageType": "POISON",
+                "canOpenDoors": false,
+                "painChance": 1,
+                "alertSound": "mobs/worm/en_worm_alert_01.mp3,mobs/worm/en_worm_alert_02.mp3,mobs/worm/en_worm_alert_03.mp3",
+                "attackSound": "mobs/worm/en_worm_attack_01.mp3,mobs/worm/en_worm_attack_02.mp3,mobs/worm/en_worm_attack_03.mp3",
+                "dieSound": "mobs/worm/en_worm_die_01.mp3,mobs/worm/en_worm_die_02.mp3,mobs/worm/en_worm_die_03.mp3",
+                "hurtSound": "mobs/worm/en_worm_hurt_01.mp3,mobs/worm/en_worm_hurt_02.mp3,mobs/worm/en_worm_hurt_03.mp3",
+                "idleSound": "mobs/worm/en_worm_idle_01.mp3,mobs/worm/en_worm_idle_02.mp3,mobs/worm/en_worm_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 30},
+                "attackAnimation": {
+                    "start": 4,
+                    "end": 10,
+                    "speed": 65,
+                    "actions": {
+                        "7": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.09, "z": 0.03}}],
+                        "9": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}],
+                        "10": [{"class": "com.interrupt.dungeoneer.gfx.animation.StunAnimationAction", "attackDelay": 100}]
+                    }
+                },
+                "hurtAnimation": {"start": 11, "end": 14, "speed": 22},
+                "dieAnimation": {"start": 15, "end": 17, "speed": 30},
+                "spriteAtlas": "entities_cave"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "name": "EYE",
+                "tex": 64,
+                "yOffset": -0.08,
+                "collision": {"x": 0.3, "y": 0.3, "z": 0.8},
+                "speed": 0.0012,
+                "floating": true,
+                "atk": 4,
+                "ranged": true,
+                "chasetarget": false,
+                "maxHp": 2,
+                "painChance": 0.3,
+                "spells": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 8,
+                        "baseDamage": 3,
+                        "randDamage": 3,
+                        "speed": 0.1,
+                        "spellColor": {"r": 0.6172, "g": 0.0937, "b": 0.7695},
+                        "castSound": "magic/mg_fire_shoot_01.mp3,magic/mg_fire_shoot_02.mp3,magic/mg_fire_shoot_03.mp3,magic/mg_fire_shoot_04.mp3",
+                        "hitSound": "magic/mg_fire_impact_01.mp3,magic/mg_fire_impact_02.mp3,magic/mg_fire_impact_03.mp3,magic/mg_fire_impact_04.mp3",
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "tex": 88,
+                            "endAnimTex": 95,
+                            "scale": 0.75,
+                            "animSpeed": 15,
+                            "spriteAtlas": "particle",
+                            "splashForce": 0.2,
+                            "splashRadius": 1.75,
+                            "fullbrite": true,
+                            "knockback": 0.5,
+                            "floating": true
+                        }
+                    }
+                ],
+                "alertSound": "mobs/beholder/en_beholder_alert_01.mp3,mobs/beholder/en_beholder_alert_02.mp3,mobs/beholder/en_beholder_alert_03.mp3",
+                "attackSound": "mobs/beholder/en_beholder_attack_01.mp3,mobs/beholder/en_beholder_attack_02.mp3,mobs/beholder/en_beholder_attack_03.mp3",
+                "dieSound": "mobs/beholder/en_beholder_die_01.mp3,mobs/beholder/en_beholder_die_02.mp3,mobs/beholder/en_beholder_die_03.mp3",
+                "hurtSound": "mobs/beholder/en_beholder_hurt_01.mp3,mobs/beholder/en_beholder_hurt_02.mp3,mobs/beholder/en_beholder_hurt_03.mp3",
+                "idleSound": "mobs/beholder/en_beholder_idle_01.mp3,mobs/beholder/en_beholder_idle_02.mp3,mobs/beholder/en_beholder_idle_03.mp3",
+                "walkAnimation": {"start": 64, "end": 67, "speed": 30},
+                "attackAnimation": {"start": 68, "end": 75, "speed": 30, "actions": {"73": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "castAnimation": {
+                    "start": 68,
+                    "end": 75,
+                    "speed": 60,
+                    "actions": {
+                        "69": [
+                            {
+                                "class": "com.interrupt.dungeoneer.gfx.animation.LightAnimationAction",
+                                "startColor": {"r": 0, "g": 0, "b": 0},
+                                "endColor": {"r": 0.8, "g": 0.1, "b": 0.1},
+                                "lightTime": 30
+                            }
+                        ],
+                        "73": [{"class": "com.interrupt.dungeoneer.gfx.animation.SpellCastAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 76, "end": 79, "speed": 22},
+                "dieAnimation": {"start": 80, "end": 84, "speed": 45},
+                "spriteAtlas": "entities_cave"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 160,
+                "name": "ZOMBIE",
+                "speed": 0.002,
+                "atk": 2,
+                "maxHp": 6,
+                "damageType": "POISON",
+                "canOpenDoors": false,
+                "painChance": 0.4,
+                "alertSound": "mobs/zombie/en_zombie_alert_01.mp3,mobs/zombie/en_zombie_alert_02.mp3,mobs/zombie/en_zombie_alert_03.mp3",
+                "attackSound": "mobs/zombie/en_zombie_attack_01.mp3,mobs/zombie/en_zombie_attack_02.mp3,mobs/zombie/en_zombie_attack_03.mp3",
+                "dieSound": "mobs/zombie/en_zombie_death_01.mp3,mobs/zombie/en_zombie_death_02.mp3,mobs/zombie/en_zombie_death_03.mp3",
+                "hurtSound": "mobs/zombie/en_zombie_hurt_01.mp3,mobs/zombie/en_zombie_hurt_02.mp3,mobs/zombie/en_zombie_hurt_03.mp3",
+                "idleSound": "mobs/zombie/en_zombie_idle_01.mp3,mobs/zombie/en_zombie_idle_02.mp3,mobs/zombie/en_zombie_idle_03.mp3",
+                "walkAnimation": {"start": 160, "end": 163, "speed": 50},
+                "attackAnimation": {"start": 164, "end": 169, "speed": 40, "actions": {"168": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 170, "end": 173, "speed": 28},
+                "dieAnimation": {"start": 174, "end": 176, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            }
+        ],
+        "DUNGEON": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 48,
+                "name": "THIEF",
+                "speed": 0.0052,
+                "atk": 2,
+                "maxHp": 4,
+                "alertSound": "mobs/human/male_alert1.mp3,mobs/human/male_alert2.mp3,mobs/human/male_alert3.mp3,mobs/human/male_alert4.mp3",
+                "walkSound": "mobs/human/human_steps.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "walkAnimation": {"start": 48, "end": 51, "speed": 30},
+                "attackAnimation": {"start": 52, "end": 55, "speed": 30, "actions": {"54": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 56, "end": 59, "speed": 22},
+                "dieAnimation": {"start": 60, "end": 62, "speed": 22},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 80,
+                "name": "THIEF2",
+                "speed": 0.003,
+                "atk": 3,
+                "maxHp": 7,
+                "painChance": 0.25,
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/melee2/en_melee_2_alert_01.mp3,mobs/melee2/en_melee_2_alert_02.mp3,mobs/melee2/en_melee_2_alert_03.mp3,mobs/melee2/en_melee_2_alert_04.mp3",
+                "attackSound": "mobs/melee2/en_melee_2_attack_01.mp3,mobs/melee2/en_melee_2_attack_02.mp3,mobs/melee2/en_melee_2_attack_03.mp3",
+                "dieSound": "mobs/melee2/en_melee_2_die_01.mp3,mobs/melee2/en_melee_2_die_02.mp3,mobs/melee2/en_melee_2_die_03.mp3",
+                "hurtSound": "mobs/melee2/en_melee_2_hurt_01.mp3,mobs/melee2/en_melee_2_hurt_02.mp3,mobs/melee2/en_melee_2_hurt_03.mp3",
+                "idleSound": "mobs/melee2/en_melee_2_idle_01.mp3,mobs/melee2/en_melee_2_idle_02.mp3,mobs/melee2/en_melee_2_idle_03.mp3",
+                "walkAnimation": {"start": 80, "end": 83, "speed": 30},
+                "attackAnimation": {"start": 84, "end": 88, "speed": 30, "actions": {"87": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 89, "end": 92, "speed": 22},
+                "dieAnimation": {"start": 93, "end": 95, "speed": 22},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 64,
+                "name": "DRUID",
+                "speed": 0.004,
+                "atk": 1,
+                "maxHp": 3,
+                "painChance": 1,
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/melee/en_melee_alert_01.mp3,mobs/melee/en_melee_alert_02.mp3,mobs/melee/en_melee_alert_03.mp3",
+                "attackSound": "mobs/melee/en_melee_attack_01.mp3,mobs/melee/en_melee_attack_02.mp3,mobs/melee/en_melee_attack_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "hurtSound": "mobs/melee/en_melee_hurt_01.mp3,mobs/melee/en_melee_hurt_02.mp3,mobs/melee/en_melee_hurt_03.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "walkAnimation": {"start": 64, "end": 67, "speed": 30},
+                "attackAnimation": {"start": 68, "end": 72, "speed": 30, "actions": {"71": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 73, "end": 76, "speed": 22},
+                "dieAnimation": {"start": 77, "end": 79, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 96,
+                "name": "DRUIDETTE",
+                "speed": 0.005,
+                "atk": 1,
+                "maxHp": 3,
+                "attackStartDistance": 1.5,
+                "painChance": 1,
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/druidette/en_druid_alert_01.mp3,mobs/druidette/en_druid_alert_02.mp3,mobs/druidette/en_druid_alert_03.mp3",
+                "attackSound": "mobs/druidette/en_druid_atk_01.mp3,mobs/druidette/en_druid_atk_02.mp3,mobs/druidette/en_druid_atk_03.mp3",
+                "dieSound": "mobs/druidette/en_druid_die_01.mp3,mobs/druidette/en_druid_die_02.mp3,mobs/druidette/en_druid_die_03.mp3",
+                "hurtSound": "mobs/druidette/en_druid_hurt_01.mp3,mobs/druidette/en_druid_hurt_02.mp3,mobs/druidette/en_druid_hurt_03.mp3",
+                "idleSound": "mobs/druidette/en_druid_idle_01.mp3,mobs/druidette/en_druid_idle_02.mp3,mobs/druidette/en_druid_idle_03.mp3",
+                "walkAnimation": {"start": 96, "end": 99, "speed": 30},
+                "attackAnimation": {
+                    "start": 105,
+                    "end": 108,
+                    "speed": 30,
+                    "actions": {
+                        "105": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.09, "z": 0.03}}],
+                        "107": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}],
+                        "108": [{"class": "com.interrupt.dungeoneer.gfx.animation.StunAnimationAction", "attackDelay": 100}]
+                    }
+                },
+                "hurtAnimation": {"start": 109, "end": 112, "speed": 22},
+                "dieAnimation": {"start": 113, "end": 115, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "SLIME",
+                "speed": 0.003,
+                "maxHp": 4,
+                "atk": 4,
+                "chasetarget": false,
+                "hasAttackAnim": false,
+                "bloodType": "Slime",
+                "bloodPoolDecal": {"tex": 24, "artType": "sprite"},
+                "bloodSplatterDecal": {"isActive": false},
+                "canOpenDoors": false,
+                "alertSound": "mobs/slime/en_slime_alert_01.mp3,mobs/slime/en_slime_alert_02.mp3,mobs/slime/en_slime_alert_03.mp3",
+                "attackSound": "mobs/slime/en_slime_attack_01.mp3,mobs/slime/en_slime_attack_02.mp3,mobs/slime/en_slime_attack_03.mp3",
+                "dieSound": "mobs/slime/en_slime_die_01.mp3,mobs/slime/en_slime_die_02.mp3,mobs/slime/en_slime_die_03.mp3",
+                "hurtSound": "mobs/slime/en_slime_hurt_01.mp3,mobs/slime/en_slime_hurt_02.mp3,mobs/slime/en_slime_hurt_03.mp3",
+                "idleSound": "mobs/slime/en_slime_idle_01.mp3,mobs/slime/en_slime_idle_02.mp3,mobs/slime/en_slime_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 35},
+                "hurtAnimation": {"start": 12, "end": 15, "speed": 22},
+                "attackAnimation": {"start": 4, "end": 11, "speed": 55, "actions": {"8": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "dieAnimation": {"start": 16, "end": 19, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 128,
+                "name": "MAGE",
+                "speed": 0.004,
+                "atk": 1,
+                "ranged": true,
+                "keepDistance": true,
+                "maxHp": 1,
+                "spells": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 4,
+                        "baseDamage": 1,
+                        "randDamage": 3,
+                        "damageType": "MAGIC",
+                        "spellColor": {"class": "com.badlogic.gdx.graphics.Color", "r": 0, "g": 1, "b": 0},
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "floating": true,
+                            "fullbrite": true,
+                            "tex": 8,
+                            "attached": [
+                                {"class": "com.interrupt.dungeoneer.entities.SpriteBeam", "tex": 30, "color": {"r": 0, "g": 1, "b": 0}, "yOffset": -0.425, "beamRenderMode": "LINE", "size": 1.5}
+                            ]
+                        }
+                    }
+                ],
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/mage/en_mage_alert_01.mp3,mobs/mage/en_mage_alert_02.mp3,mobs/mage/en_mage_alert_03.mp3",
+                "attackSound": "mobs/mage/en_mage_attack_01.mp3,mobs/mage/en_mage_attack_02.mp3,mobs/mage/en_mage_attack_03.mp3",
+                "dieSound": "mobs/mage/en_mage_die_01.mp3,mobs/mage/en_mage_die_02.mp3,mobs/mage/en_mage_die_03.mp3,mobs/mage/en_mage_die_04.mp3,mobs/mage/en_mage_die_05.mp3",
+                "hurtSound": "mobs/mage/en_mage_hurt_01.mp3,mobs/mage/en_mage_hurt_02.mp3,mobs/mage/en_mage_hurt_03.mp3",
+                "idleSound": "mobs/mage/en_mage_idle_01.mp3,mobs/mage/en_mage_idle_02.mp3,mobs/mage/en_mage_idle_03.mp3",
+                "walkAnimation": {"start": 128, "end": 131, "speed": 30},
+                "attackAnimation": {"start": 132, "end": 138, "speed": 30, "actions": {"136": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "castAnimation": {
+                    "start": 132,
+                    "end": 138,
+                    "speed": 60,
+                    "actions": {
+                        "133": [
+                            {
+                                "class": "com.interrupt.dungeoneer.gfx.animation.LightAnimationAction",
+                                "startColor": {"r": 0, "g": 0, "b": 0},
+                                "endColor": {"r": 0.1, "g": 0.8, "b": 0.1},
+                                "lightTime": 30
+                            }
+                        ],
+                        "136": [{"class": "com.interrupt.dungeoneer.gfx.animation.SpellCastAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 139, "end": 142, "speed": 22},
+                "dieAnimation": {"start": 143, "end": 145, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "name": "BAT",
+                "attackStartDistance": 1.5,
+                "floating": true,
+                "speed": 0.002,
+                "maxHp": 1,
+                "atk": 1,
+                "yOffset": -0.25,
+                "chasetarget": false,
+                "hasAttackAnim": false,
+                "canOpenDoors": false,
+                "painChance": 1,
+                "alertSound": "mobs/bat/en_bat_alert_01.mp3,mobs/bat/en_bat_alert_02.mp3,mobs/bat/en_bat_alert_03.mp3",
+                "attackSound": "mobs/bat/en_bat_attack_01.mp3,mobs/bat/en_bat_attack_02.mp3,mobs/bat/en_bat_attack_03.mp3",
+                "dieSound": "mobs/bat/en_bat_death_01.mp3,mobs/bat/en_bat_death_02.mp3,mobs/bat/en_bat_death_03.mp3",
+                "hurtSound": "mobs/bat/en_bat_hurt_01.mp3,mobs/bat/en_bat_hurt_02.mp3,mobs/bat/en_bat_hurt_03.mp3",
+                "idleSound": "mobs/bat/en_bat_idle_01.mp3,mobs/bat/en_bat_idle_02.mp3,mobs/bat/en_bat_idle_03.mp3",
+                "walkAnimation": {"start": 32, "end": 35, "speed": 30},
+                "attackAnimation": {
+                    "start": 36,
+                    "end": 41,
+                    "speed": 30,
+                    "actions": {
+                        "37": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.07}}],
+                        "39": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 42, "end": 43, "speed": 22},
+                "dieAnimation": {"start": 43, "end": 45, "speed": 30},
+                "spriteAtlas": "entities_dungeon"
+            }
+        ],
+        "UNDEAD": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "SKELETON MINION",
+                "speed": 0.005,
+                "atk": 8,
+                "maxHp": 5,
+                "baseLevel": 5,
+                "bloodType": "Bone",
+                "scale": 0.7,
+                "bloodPoolDecal": {"isActive": false},
+                "bloodSplatterDecal": {"isActive": false},
+                "alertSound": "mobs/skeleton/en_skel_alert_01.mp3,mobs/skeleton/en_skel_alert_02.mp3,mobs/skeleton/en_skel_alert_03.mp3",
+                "attackSound": "mobs/skeleton/en_skel_attack_01.mp3,mobs/skeleton/en_skel_attack_02.mp3,mobs/skeleton/en_skel_attack_03.mp3",
+                "dieSound": "mobs/skeleton/en_skel_death_01.mp3,mobs/skeleton/en_skel_death_02.mp3,mobs/skeleton/en_skel_death_03.mp3",
+                "hurtSound": "mobs/skeleton/en_skel_hurt_01.mp3,mobs/skeleton/en_skel_hurt_02.mp3,mobs/skeleton/en_skel_hurt_03.mp3",
+                "idleSound": "mobs/skeleton/en_skel_idle_01.mp3,mobs/skeleton/en_skel_idle_02.mp3,mobs/skeleton/en_skel_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 30},
+                "attackAnimation": {"start": 4, "end": 8, "speed": 30, "actions": {"7": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 9, "end": 12, "speed": 22},
+                "dieAnimation": {"start": 13, "end": 15, "speed": 30},
+                "spriteAtlas": "entities_undead",
+                "yOffset": -0.1
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "SKELETON",
+                "speed": 0.004,
+                "atk": 8,
+                "maxHp": 12,
+                "baseLevel": 5,
+                "bloodType": "Bone",
+                "bloodPoolDecal": {"isActive": false},
+                "bloodSplatterDecal": {"isActive": false},
+                "painChance": 0.5,
+                "alertSound": "mobs/skeleton/en_skel_alert_01.mp3,mobs/skeleton/en_skel_alert_02.mp3,mobs/skeleton/en_skel_alert_03.mp3",
+                "attackSound": "mobs/skeleton/en_skel_attack_01.mp3,mobs/skeleton/en_skel_attack_02.mp3,mobs/skeleton/en_skel_attack_03.mp3",
+                "dieSound": "mobs/skeleton/en_skel_death_01.mp3,mobs/skeleton/en_skel_death_02.mp3,mobs/skeleton/en_skel_death_03.mp3",
+                "hurtSound": "mobs/skeleton/en_skel_hurt_01.mp3,mobs/skeleton/en_skel_hurt_02.mp3,mobs/skeleton/en_skel_hurt_03.mp3",
+                "idleSound": "mobs/skeleton/en_skel_idle_01.mp3,mobs/skeleton/en_skel_idle_02.mp3,mobs/skeleton/en_skel_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 30},
+                "attackAnimation": {"start": 4, "end": 8, "speed": 30, "actions": {"7": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 9, "end": 12, "speed": 22},
+                "dieAnimation": {"start": 13, "end": 15, "speed": 30},
+                "spriteAtlas": "entities_undead"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 16,
+                "name": "SKELETON MAGE",
+                "speed": 0.004,
+                "atk": 5,
+                "maxHp": 3,
+                "baseLevel": 5,
+                "ranged": true,
+                "chasetarget": false,
+                "bloodType": "Bone",
+                "bloodPoolDecal": {"isActive": false},
+                "bloodSplatterDecal": {"isActive": false},
+                "spells": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 4,
+                        "baseDamage": 3,
+                        "randDamage": 3,
+                        "damageType": "MAGIC",
+                        "spellColor": {"r": 0.6172, "g": 0.0937, "b": 0.7695},
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "tex": 52,
+                            "endAnimTex": 55,
+                            "scale": 0.75,
+                            "animSpeed": 15,
+                            "spriteAtlas": "particle",
+                            "splashForce": 0.2,
+                            "splashRadius": 1.75,
+                            "fullbrite": true,
+                            "knockback": 0.5,
+                            "floating": true
+                        }
+                    },
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 4,
+                        "baseDamage": 3,
+                        "randDamage": 3,
+                        "damageType": "FIRE",
+                        "spellColor": {"class": "com.badlogic.gdx.graphics.Color", "r": 1, "g": 0, "b": 0},
+                        "castSound": "magic/mg_fire_shoot_01.mp3,magic/mg_fire_shoot_02.mp3,magic/mg_fire_shoot_03.mp3,magic/mg_fire_shoot_04.mp3",
+                        "hitSound": "magic/mg_fire_impact_01.mp3,magic/mg_fire_impact_02.mp3,magic/mg_fire_impact_03.mp3,magic/mg_fire_impact_04.mp3",
+                        "speed": 0.09,
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "tex": 88,
+                            "endAnimTex": 95,
+                            "scale": 0.75,
+                            "animSpeed": 15,
+                            "spriteAtlas": "particle",
+                            "splashForce": 0.2,
+                            "splashRadius": 1.75,
+                            "fullbrite": true,
+                            "knockback": 0.5,
+                            "floating": true
+                        }
+                    },
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.SpreadMagicMissile",
+                        "numProjectiles": 3,
+                        "xSpread": 20,
+                        "ySpread": 2,
+                        "mpCost": 4,
+                        "baseDamage": 1,
+                        "randDamage": 1,
+                        "damageType": "ICE",
+                        "spellColor": {"r": 0, "g": 0.7, "b": 1},
+                        "castSound": "magic/mg_ice_shoot_01.mp3,magic/mg_ice_shoot_02.mp3,magic/mg_ice_shoot_03.mp3,magic/mg_ice_shoot_04.mp3",
+                        "hitSound": "magic/mg_ice_impact_01.mp3,magic/mg_ice_impact_02.mp3,magic/mg_ice_impact_03.mp3,magic/mg_ice_impact_04.mp3",
+                        "speed": 0.08,
+                        "appearance": {"tex": 52, "texAtlas": "particle"}
+                    }
+                ],
+                "alertSound": "mobs/skeleton/en_skel_alert_01.mp3,mobs/skeleton/en_skel_alert_02.mp3,mobs/skeleton/en_skel_alert_03.mp3",
+                "attackSound": "mobs/skeleton/en_skel_attack_01.mp3,mobs/skeleton/en_skel_attack_02.mp3,mobs/skeleton/en_skel_attack_03.mp3",
+                "dieSound": "mobs/skeleton/en_skel_death_01.mp3,mobs/skeleton/en_skel_death_02.mp3,mobs/skeleton/en_skel_death_03.mp3",
+                "hurtSound": "mobs/skeleton/en_skel_hurt_01.mp3,mobs/skeleton/en_skel_hurt_02.mp3,mobs/skeleton/en_skel_hurt_03.mp3",
+                "idleSound": "mobs/skeleton/en_skel_idle_01.mp3,mobs/skeleton/en_skel_idle_02.mp3,mobs/skeleton/en_skel_idle_03.mp3",
+                "walkAnimation": {"start": 16, "end": 19, "speed": 30},
+                "attackAnimation": {"start": 20, "end": 27, "speed": 30, "actions": {"26": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "castAnimation": {
+                    "start": 20,
+                    "end": 27,
+                    "speed": 60,
+                    "actions": {
+                        "21": [
+                            {
+                                "class": "com.interrupt.dungeoneer.gfx.animation.LightAnimationAction",
+                                "startColor": {"r": 0, "g": 0, "b": 0},
+                                "endColor": {"r": 0.6, "g": 0.6, "b": 0.6},
+                                "lightTime": 40
+                            }
+                        ],
+                        "26": [{"class": "com.interrupt.dungeoneer.gfx.animation.SpellCastAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 28, "end": 31, "speed": 22},
+                "dieAnimation": {"start": 32, "end": 34, "speed": 30},
+                "spriteAtlas": "entities_undead"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 48,
+                "name": "ANIMATED SKULL",
+                "floating": true,
+                "speed": 0.0022,
+                "atk": 6,
+                "maxHp": 2,
+                "yOffset": -0.25,
+                "bloodType": "Bone",
+                "bloodPoolDecal": {"isActive": false},
+                "bloodSplatterDecal": {"isActive": false},
+                "canOpenDoors": false,
+                "alertSound": "mobs/skull/en_skull_alert_01.mp3,mobs/skull/en_skull_alert_02.mp3,mobs/skull/en_skull_alert_03.mp3",
+                "attackSound": "mobs/skull/en_skull_atk_01.mp3,mobs/skull/en_skull_atk_02.mp3,mobs/skull/en_skull_atk_03.mp3",
+                "dieSound": "mobs/skull/en_skull_die_01.mp3,mobs/skull/en_skull_die_02.mp3,mobs/skull/en_skull_die_03.mp3",
+                "hurtSound": "mobs/skull/en_skull_hurt_01.mp3,mobs/skull/en_skull_hurt_02.mp3,mobs/skull/en_skull_hurt_03.mp3",
+                "idleSound": "mobs/skull/en_skull_idle_01.mp3,mobs/skull/en_skull_idle_02.mp3,mobs/skull/en_skull_idle_03.mp3",
+                "walkAnimation": {"start": 48, "end": 51, "speed": 30},
+                "attackAnimation": {"start": 52, "end": 55, "speed": 30, "actions": {"55": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 56, "end": 59, "speed": 22},
+                "dieAnimation": {"start": 60, "end": 62, "speed": 30},
+                "spriteAtlas": "entities_undead"
+            }
+        ],
+        "SEWER": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 48,
+                "name": "VAMPIRE BAT",
+                "floating": true,
+                "speed": 0.002,
+                "atk": 5,
+                "maxHp": 5,
+                "baseLevel": 3,
+                "yOffset": -0.25,
+                "chasetarget": false,
+                "hasAttackAnim": false,
+                "canOpenDoors": false,
+                "alertSound": "mobs/bat/en_bat_alert_01.mp3,mobs/bat/en_bat_alert_02.mp3,mobs/bat/en_bat_alert_03.mp3",
+                "attackSound": "mobs/bat/en_bat_attack_01.mp3,mobs/bat/en_bat_attack_02.mp3,mobs/bat/en_bat_attack_03.mp3",
+                "dieSound": "mobs/bat/en_bat_death_01.mp3,mobs/bat/en_bat_death_02.mp3,mobs/bat/en_bat_death_03.mp3",
+                "hurtSound": "mobs/bat/en_bat_hurt_01.mp3,mobs/bat/en_bat_hurt_02.mp3,mobs/bat/en_bat_hurt_03.mp3",
+                "idleSound": "mobs/bat/en_bat_idle_01.mp3,mobs/bat/en_bat_idle_02.mp3,mobs/bat/en_bat_idle_03.mp3",
+                "walkAnimation": {"start": 48, "end": 51, "speed": 30},
+                "attackAnimation": {
+                    "start": 52,
+                    "end": 57,
+                    "speed": 30,
+                    "actions": {
+                        "53": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.07}}],
+                        "55": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 58, "end": 59, "speed": 30},
+                "dieAnimation": {"start": 59, "end": 61, "speed": 30},
+                "spriteAtlas": "entities_sewer"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "GOBLIN",
+                "speed": 0.0035,
+                "atk": 6,
+                "maxHp": 5,
+                "baseLevel": 3,
+                "painChance": 0.6,
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/goblin/en_goblin_alert_01.mp3,mobs/goblin/en_goblin_alert_02.mp3,mobs/goblin/en_goblin_alert_03.mp3",
+                "attackSound": "mobs/goblin/en_goblin_attack_01.mp3,mobs/goblin/en_goblin_attack_02.mp3,mobs/goblin/en_goblin_attack_03.mp3",
+                "dieSound": "mobs/goblin/en_goblin_death_01.mp3,mobs/goblin/en_goblin_death_02.mp3,mobs/goblin/en_goblin_death_03.mp3",
+                "hurtSound": "mobs/goblin/en_goblin_hurt_01.mp3,mobs/goblin/en_goblin_hurt_02.mp3,mobs/goblin/en_goblin_hurt_03.mp3",
+                "idleSound": "mobs/goblin/en_goblin_idle_01.mp3,mobs/goblin/en_goblin_idle_02.mp3,mobs/goblin/en_goblin_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 35},
+                "attackAnimation": {"start": 4, "end": 10, "speed": 60, "actions": {"8": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction", "knockback": 0.15}]}},
+                "hurtAnimation": {"start": 11, "end": 14, "speed": 30},
+                "dieAnimation": {"start": 15, "end": 17, "speed": 30},
+                "spriteAtlas": "entities_sewer"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "name": "GOBLIN WARRIOR",
+                "speed": 0.0035,
+                "atk": 7,
+                "maxHp": 8,
+                "baseLevel": 3,
+                "painChance": 0.5,
+                "walkSound": "mobs/human/human_steps.mp3",
+                "alertSound": "mobs/goblin/en_goblin_alert_01.mp3,mobs/goblin/en_goblin_alert_02.mp3,mobs/goblin/en_goblin_alert_03.mp3",
+                "attackSound": "mobs/goblin/en_goblin_attack_01.mp3,mobs/goblin/en_goblin_attack_02.mp3,mobs/goblin/en_goblin_attack_03.mp3",
+                "dieSound": "mobs/goblin/en_goblin_death_01.mp3,mobs/goblin/en_goblin_death_02.mp3,mobs/goblin/en_goblin_death_03.mp3",
+                "hurtSound": "mobs/goblin/en_goblin_hurt_01.mp3,mobs/goblin/en_goblin_hurt_02.mp3,mobs/goblin/en_goblin_hurt_03.mp3",
+                "idleSound": "mobs/goblin/en_goblin_idle_01.mp3,mobs/goblin/en_goblin_idle_02.mp3,mobs/goblin/en_goblin_idle_03.mp3",
+                "walkAnimation": {"start": 32, "end": 35, "speed": 35},
+                "attackAnimation": {"start": 36, "end": 39, "speed": 40, "actions": {"38": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction", "knockback": 0.1}]}},
+                "hurtAnimation": {"start": 40, "end": 43, "speed": 30},
+                "dieAnimation": {"start": 44, "end": 46, "speed": 30},
+                "spriteAtlas": "entities_sewer"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "name": "EYE",
+                "tex": 64,
+                "yOffset": -0.08,
+                "collision": {"x": 0.3, "y": 0.3, "z": 0.8},
+                "speed": 0.0012,
+                "floating": true,
+                "atk": 4,
+                "ranged": true,
+                "chasetarget": false,
+                "maxHp": 2,
+                "painChance": 0.3,
+                "spells": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 8,
+                        "baseDamage": 3,
+                        "randDamage": 3,
+                        "speed": 0.1,
+                        "spellColor": {"class": "com.badlogic.gdx.graphics.Color", "r": 1, "g": 0, "b": 0},
+                        "damageType": "FIRE",
+                        "castSound": "magic/mg_fire_shoot_01.mp3,magic/mg_fire_shoot_02.mp3,magic/mg_fire_shoot_03.mp3,magic/mg_fire_shoot_04.mp3",
+                        "hitSound": "magic/mg_fire_impact_01.mp3,magic/mg_fire_impact_02.mp3,magic/mg_fire_impact_03.mp3,magic/mg_fire_impact_04.mp3",
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "tex": 88,
+                            "endAnimTex": 95,
+                            "scale": 0.75,
+                            "animSpeed": 15,
+                            "spriteAtlas": "particle",
+                            "splashForce": 0.2,
+                            "splashRadius": 1.75,
+                            "fullbrite": true,
+                            "knockback": 0.5,
+                            "floating": true
+                        }
+                    }
+                ],
+                "alertSound": "mobs/beholder/en_beholder_alert_01.mp3,mobs/beholder/en_beholder_alert_02.mp3,mobs/beholder/en_beholder_alert_03.mp3",
+                "attackSound": "mobs/beholder/en_beholder_attack_01.mp3,mobs/beholder/en_beholder_attack_02.mp3,mobs/beholder/en_beholder_attack_03.mp3",
+                "dieSound": "mobs/beholder/en_beholder_die_01.mp3,mobs/beholder/en_beholder_die_02.mp3,mobs/beholder/en_beholder_die_03.mp3",
+                "hurtSound": "mobs/beholder/en_beholder_hurt_01.mp3,mobs/beholder/en_beholder_hurt_02.mp3,mobs/beholder/en_beholder_hurt_03.mp3",
+                "idleSound": "mobs/beholder/en_beholder_idle_01.mp3,mobs/beholder/en_beholder_idle_02.mp3,mobs/beholder/en_beholder_idle_03.mp3",
+                "walkAnimation": {"start": 64, "end": 67, "speed": 30},
+                "attackAnimation": {"start": 68, "end": 75, "speed": 30, "actions": {"73": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "castAnimation": {
+                    "start": 68,
+                    "end": 75,
+                    "speed": 60,
+                    "actions": {
+                        "69": [
+                            {
+                                "class": "com.interrupt.dungeoneer.gfx.animation.LightAnimationAction",
+                                "startColor": {"r": 0, "g": 0, "b": 0},
+                                "endColor": {"r": 0.8, "g": 0.1, "b": 0.1},
+                                "lightTime": 30
+                            }
+                        ],
+                        "73": [{"class": "com.interrupt.dungeoneer.gfx.animation.SpellCastAction"}]
+                    }
+                },
+                "hurtAnimation": {"start": 76, "end": 79, "speed": 22},
+                "dieAnimation": {"start": 80, "end": 84, "speed": 45},
+                "spriteAtlas": "entities_cave"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "name": "WORM",
+                "speed": 0.0025,
+                "atk": 2,
+                "maxHp": 2,
+                "attackStartDistance": 1.75,
+                "bloodType": "Slime",
+                "bloodPoolDecal": {"tex": 24, "artType": "sprite"},
+                "bloodSplatterDecal": {"isActive": false},
+                "damageType": "POISON",
+                "canOpenDoors": false,
+                "alertSound": "mobs/worm/en_worm_alert_01.mp3,mobs/worm/en_worm_alert_02.mp3,mobs/worm/en_worm_alert_03.mp3",
+                "attackSound": "mobs/worm/en_worm_attack_01.mp3,mobs/worm/en_worm_attack_02.mp3,mobs/worm/en_worm_attack_03.mp3",
+                "dieSound": "mobs/worm/en_worm_die_01.mp3,mobs/worm/en_worm_die_02.mp3,mobs/worm/en_worm_die_03.mp3",
+                "hurtSound": "mobs/worm/en_worm_hurt_01.mp3,mobs/worm/en_worm_hurt_02.mp3,mobs/worm/en_worm_hurt_03.mp3",
+                "idleSound": "mobs/worm/en_worm_idle_01.mp3,mobs/worm/en_worm_idle_02.mp3,mobs/worm/en_worm_idle_03.mp3",
+                "walkAnimation": {"start": 0, "end": 3, "speed": 30},
+                "attackAnimation": {
+                    "start": 4,
+                    "end": 10,
+                    "speed": 65,
+                    "actions": {
+                        "7": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.09, "z": 0.03}}],
+                        "9": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}],
+                        "10": [{"class": "com.interrupt.dungeoneer.gfx.animation.StunAnimationAction", "attackDelay": 100}]
+                    }
+                },
+                "hurtAnimation": {"start": 11, "end": 14, "speed": 22},
+                "dieAnimation": {"start": 15, "end": 17, "speed": 30},
+                "spriteAtlas": "entities_cave"
+            }
+        ],
+        "BOSS": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 16,
+                "name": "LICH",
+                "speed": 0.004,
+                "atk": 8,
+                "maxHp": 35,
+                "baseLevel": 7,
+                "ranged": true,
+                "bloodType": "Bone",
+                "bloodPoolDecal": {"isActive": false},
+                "bloodSplatterDecal": {"isActive": false},
+                "collision": {"x": 0.3, "y": 0.3, "z": 0.8},
+                "triggersOnDeath": "BOSS_DIED",
+                "painChance": 0.075,
+                "spells": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.MagicMissile",
+                        "mpCost": 2,
+                        "baseDamage": 6,
+                        "randDamage": 8,
+                        "damageType": "LIGHTNING",
+                        "spellColor": {"class": "com.badlogic.gdx.graphics.Color", "r": 0.9, "g": 0.9, "b": 0.9},
+                        "castSound": "magic/boss_attacks_01.mp3,magic/boss_attacks_02.mp3,magic/boss_attacks_03.mp3",
+                        "magicMissileProjectile": {
+                            "class": "com.interrupt.dungeoneer.entities.projectiles.MagicMissileProjectile",
+                            "tex": 88,
+                            "endAnimTex": 95,
+                            "scale": 1,
+                            "animSpeed": 15,
+                            "spriteAtlas": "particle",
+                            "splashForce": 0.2,
+                            "splashRadius": 1.75,
+                            "fullbrite": true,
+                            "knockback": 0.5,
+                            "floating": true
+                        },
+                        "speed": 0.1
+                    },
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.spells.SpreadMagicMissile",
+                        "numProjectiles": 6,
+                        "xSpread": 40,
+                        "ySpread": 2,
+                        "mpCost": 4,
+                        "baseDamage": 2,
+                        "randDamage": 2,
+                        "damageType": "MAGIC",
+                        "spellColor": {"r": 0.6172, "g": 0.0937, "b": 0.7695},
+                        "castSound": "magic/mg_ice_shoot_01.mp3,magic/mg_ice_shoot_02.mp3,magic/mg_ice_shoot_03.mp3,magic/mg_ice_shoot_04.mp3",
+                        "hitSound": "magic/mg_ice_impact_01.mp3,magic/mg_ice_impact_02.mp3,magic/mg_ice_impact_03.mp3,magic/mg_ice_impact_04.mp3",
+                        "speed": 0.06,
+                        "appearance": {"tex": 52, "texAtlas": "particle"}
+                    }
+                ],
+                "alertSound": "mobs/skeleton/en_skel_alert_01.mp3,mobs/skeleton/en_skel_alert_02.mp3,mobs/skeleton/en_skel_alert_03.mp3",
+                "attackSound": "mobs/skeleton/en_skel_attack_01.mp3,mobs/skeleton/en_skel_attack_02.mp3,mobs/skeleton/en_skel_attack_03.mp3",
+                "dieSound": "mobs/skeleton/en_skel_death_01.mp3,mobs/skeleton/en_skel_death_02.mp3,mobs/skeleton/en_skel_death_03.mp3",
+                "hurtSound": "mobs/skeleton/en_skel_hurt_01.mp3,mobs/skeleton/en_skel_hurt_02.mp3,mobs/skeleton/en_skel_hurt_03.mp3",
+                "idleSound": "mobs/skeleton/en_skel_idle_01.mp3,mobs/skeleton/en_skel_idle_02.mp3,mobs/skeleton/en_skel_idle_03.mp3",
+                "walkAnimation": {"start": 16, "end": 19, "speed": 30},
+                "attackAnimation": {"start": 20, "end": 26, "speed": 30, "actions": {"25": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "castAnimation": {
+                    "start": 20,
+                    "end": 26,
+                    "speed": 80,
+                    "actions": {
+                        "21": [
+                            {
+                                "class": "com.interrupt.dungeoneer.gfx.animation.LightAnimationAction",
+                                "startColor": {"r": 0, "g": 0, "b": 0},
+                                "endColor": {"r": 0.8, "g": 0.8, "b": 0.7},
+                                "lightTime": 60
+                            }
+                        ],
+                        "25": [{"class": "com.interrupt.dungeoneer.gfx.animation.SpellCastAction"}, {"class": "com.interrupt.dungeoneer.gfx.animation.StunAnimationAction", "attackDelay": 100}]
+                    }
+                },
+                "hurtAnimation": {"start": 27, "end": 30, "speed": 30},
+                "dieAnimation": {"start": 31, "end": 47, "speed": 140},
+                "spriteAtlas": "entities_boss"
+            }
+        ],
+        "SPECIAL": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 96,
+                "name": "GHOST",
+                "floating": true,
+                "speed": 0.0008,
+                "atk": 5,
+                "maxHp": 15,
+                "baseLevel": 3,
+                "yOffset": 0,
+                "chasetarget": true,
+                "walkAnimation": {"start": 96, "end": 101, "speed": 30},
+                "spriteAtlas": "entities_undead",
+                "bloodType": "Bone",
+                "blendMode": "ADD",
+                "shader": "fog",
+                "collision": {"x": 0.3, "y": 0.3, "z": 0.8},
+                "attached": [{"class": "com.interrupt.dungeoneer.entities.DynamicLight", "range": 2, "lightColor": {"x": 0.5, "y": 0.5, "z": 0.75}}]
+            }
+        ],
+        "DEBUG": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "name": "SLOWMAN",
+                "speed": 0,
+                "atk": 2,
+                "maxHp": 4,
+                "alertSound": "mobs/human/male_alert1.mp3,mobs/human/male_alert2.mp3,mobs/human/male_alert3.mp3,mobs/human/male_alert4.mp3",
+                "walkSound": "mobs/human/human_steps.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "attackAnimation": {"start": 34, "end": 35, "speed": 30, "actions": {"35": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 36, "end": 39, "speed": 22}
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 64,
+                "name": "FASTMAN",
+                "speed": 0.01,
+                "atk": 2,
+                "maxHp": 4,
+                "alertSound": "mobs/human/male_alert1.mp3,mobs/human/male_alert2.mp3,mobs/human/male_alert3.mp3,mobs/human/male_alert4.mp3",
+                "walkSound": "mobs/human/human_steps.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "attackAnimation": {"start": 34, "end": 35, "speed": 30, "actions": {"35": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 36, "end": 39, "speed": 22}
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 48,
+                "name": "ARCHER",
+                "speed": 0.0052,
+                "atk": 2,
+                "maxHp": 4,
+                "alertSound": "mobs/human/male_alert1.mp3,mobs/human/male_alert2.mp3,mobs/human/male_alert3.mp3,mobs/human/male_alert4.mp3",
+                "walkSound": "mobs/human/human_steps.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "walkAnimation": {"start": 48, "end": 51, "speed": 30},
+                "attackAnimation": {"start": 52, "end": 55, "speed": 30, "actions": {"54": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 56, "end": 59, "speed": 22},
+                "dieAnimation": {"start": 60, "end": 62, "speed": 22},
+                "projectile": {"class": "com.interrupt.dungeoneer.entities.projectiles.Missile"},
+                "projectileSpeed": 0.15,
+                "spriteAtlas": "entities_dungeon"
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 96,
+                "name": "GHOST",
+                "floating": true,
+                "speed": 0.0008,
+                "atk": 5,
+                "maxHp": 1000,
+                "baseLevel": 3,
+                "yOffset": -0.25,
+                "chasetarget": true,
+                "walkAnimation": {"start": 96, "end": 101, "speed": 30},
+                "spriteAtlas": "entities_undead",
+                "attached": [{"class": "com.interrupt.dungeoneer.entities.DynamicLight", "range": 2, "lightColor": {"x": 0.8, "y": 0.8, "z": 0.9}}]
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 48,
+                "name": "Friendly Man",
+                "speed": 0.0052,
+                "atk": 2,
+                "maxHp": 4,
+                "hostile": false,
+                "alertSound": "mobs/human/male_alert1.mp3,mobs/human/male_alert2.mp3,mobs/human/male_alert3.mp3,mobs/human/male_alert4.mp3",
+                "walkSound": "mobs/human/human_steps.mp3",
+                "idleSound": "mobs/melee/en_melee_idle_01.mp3,mobs/melee/en_melee_idle_02.mp3,mobs/melee/en_melee_idle_03.mp3",
+                "dieSound": "mobs/melee/en_melee_die_01.mp3,mobs/melee/en_melee_die_02.mp3,mobs/melee/en_melee_die_03.mp3",
+                "walkAnimation": {"start": 48, "end": 51, "speed": 30},
+                "attackAnimation": {"start": 52, "end": 55, "speed": 30, "actions": {"54": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 56, "end": 59, "speed": 22},
+                "dieAnimation": {"start": 60, "end": 62, "speed": 22},
+                "spriteAtlas": "entities_dungeon",
+                "useTrigger": {"class": "com.interrupt.dungeoneer.entities.triggers.TriggeredMessage", "messages": ["Hey, how is it going?"]}
+            }
+        ],
+        "SURPRISE": [
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 0,
+                "spriteAtlas": "entities_surprise",
+                "name": "SPIDER",
+                "speed": 0,
+                "maxHp": 1,
+                "atk": 2,
+                "spawnsLoot": false,
+                "bloodType": "Insect",
+                "bloodPoolDecal": {"tex": 25, "artType": "sprite"},
+                "bloodSplatterDecal": {"isActive": false},
+                "stepHeight": 1,
+                "canOpenDoors": false,
+                "alertSound": "mobs/spider/en_spider_alert_01.mp3,mobs/spider/en_spider_alert_02.mp3,mobs/spider/en_spider_alert_03.mp3",
+                "attackSound": "mobs/spider/en_spider_attack_01.mp3,mobs/spider/en_spider_attack_02.mp3,mobs/spider/en_spider_attack_03.mp3",
+                "dieSound": "mobs/spider/en_spider_die_01.mp3,mobs/spider/en_spider_die_02.mp3,mobs/spider/en_spider_die_03.mp3",
+                "hurtSound": "mobs/spider/en_spider_hurt_01.mp3,mobs/spider/en_spider_hurt_02.mp3,mobs/spider/en_spider_hurt_03.mp3",
+                "idleSound": "mobs/spider/en_spider_idle_01.mp3,mobs/spider/en_spider_idle_02.mp3,mobs/spider/en_spider_idle_03.mp3",
+                "walkAnimation": {
+                    "start": 0,
+                    "end": 15,
+                    "speed": 120,
+                    "actions": {"12": [{"class": "com.interrupt.dungeoneer.gfx.animation.ImpulseAction", "impulseVector": {"x": 0.09, "z": 0.045}}]}
+                },
+                "attackAnimation": {"start": 13, "end": 13, "speed": 15, "actions": {"13": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "hurtAnimation": {"start": 13, "end": 13, "speed": 22},
+                "dieAnimation": {"start": 16, "end": 19, "speed": 30}
+            },
+            {
+                "class": "com.interrupt.dungeoneer.entities.Monster",
+                "tex": 32,
+                "artType": "entity",
+                "name": "RED_SLIME",
+                "givesExp": false,
+                "spriteAtlas": "entities_surprise",
+                "stats": {},
+                "speed": 0.0015,
+                "canOpenDoors": false,
+                "spawnsLoot": false,
+                "bloodPoolDecal": {"tex": 16, "artType": "sprite", "end": 10, "decalWidth": 0.8, "decalHeight": 0.8},
+                "bloodSplatterDecal": {"tex": 17, "artType": "sprite", "end": 10, "decalWidth": 0.5, "decalHeight": 0.5},
+                "walkAnimation": {"start": 32, "end": 35, "speed": 35},
+                "hurtAnimation": {"start": 44, "end": 47, "speed": 22},
+                "attackAnimation": {"start": 36, "end": 43, "speed": 55, "actions": {"41": [{"class": "com.interrupt.dungeoneer.gfx.animation.DamageAction"}]}},
+                "dieAnimation": {"start": 48, "end": 60, "speed": 45},
+                "spawnVelocity": {"z": 0.03125},
+                "spawnRandomVelocity": {"x": 0.03125, "y": 0.03125, "z": 0},
+                "spawns": [
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.Group",
+                        "spawnChance": 0.45,
+                        "entities": [
+                            {"class": "com.interrupt.dungeoneer.entities.MonsterSpawner", "monsterTheme": "SURPRISE", "monsterName": "RED_SLIME", "x": 0.35, "y": 0.125, "xa": 0.03125},
+                            {"class": "com.interrupt.dungeoneer.entities.MonsterSpawner", "monsterTheme": "SURPRISE", "monsterName": "RED_SLIME", "x": -0.35, "y": -0.125, "xa": -0.03125}
+                        ]
+                    },
+                    {
+                        "class": "com.interrupt.dungeoneer.entities.Group",
+                        "spawnChance": 0.4,
+                        "entities": [
+                            {"class": "com.interrupt.dungeoneer.entities.MonsterSpawner", "monsterTheme": "SURPRISE", "monsterName": "RED_SLIME", "x": 0.35, "y": 0.125, "ya": 0.03125},
+                            {"class": "com.interrupt.dungeoneer.entities.MonsterSpawner", "monsterTheme": "SURPRISE", "monsterName": "RED_SLIME", "x": -0.35, "y": -0.125, "ya": -0.03125}
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
