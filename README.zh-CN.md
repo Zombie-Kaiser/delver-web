@@ -13,7 +13,7 @@
 | `html/webapp/` | 已编译完成、开箱即玩的网页版（`app.js`、资源、`index.html`） |
 | `core/` | Java 游戏源码（libGDX） |
 | `html/` | TeaVM 网页后端源码与构建配置 |
-| `assets/` | 游戏数据，含生成的中文本地化文件（`strings_zh.dat`、`messages/*_zh.dat`） |
+| `assets/` | 游戏数据，含生成的中文本地化文件（`strings_zh.dat`、`messages/*_zh.dat`）——**不包含在仓库中**（见下方说明） |
 | `tools/` | 生成中文本地化与点阵字体的 Python 脚本 |
 | `converter/` | 数据转换工具 |
 | `serve.py` | 用于本地测试的简易 HTTP 服务器 |
@@ -31,10 +31,13 @@ python serve.py
 
 ## 从源码构建
 
-需要 JDK 17 或更高版本：
+需要 JDK 17 或更高版本以及游戏资源。`assets/` 目录**不存储在本仓库中**——从源码构建前请先恢复：
 
 ```bash
-./gradlew teavm        # 将游戏编译为 JS，输出到 html/webapp/
+cp -r html/webapp/assets assets       # 从仓库自带的网页版恢复
+# 或从上游 Delver 仓库复制
+
+./gradlew teavm                        # 将游戏编译为 JS，输出到 html/webapp/
 ```
 
 ## 重新生成中文本地化

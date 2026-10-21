@@ -13,7 +13,7 @@ A browser-ready port of [Delver](https://github.com/Aureusus/DelverStride2D) —
 | `html/webapp/` | Ready-to-run compiled web build (`app.js`, assets, `index.html`) — playable immediately |
 | `core/` | Java game source (libGDX) |
 | `html/` | TeaVM web backend sources and build config |
-| `assets/` | Game data, including generated Chinese localization files (`strings_zh.dat`, `messages/*_zh.dat`) |
+| `assets/` | Game data incl. Chinese localization files (`strings_zh.dat`, `messages/*_zh.dat`) — **not included in the repo** (see note below) |
 | `tools/` | Python scripts that generate the Chinese localization and bitmap fonts |
 | `converter/` | Data conversion helpers |
 | `serve.py` | Tiny local HTTP server for testing the web build |
@@ -31,10 +31,13 @@ Or use any static file server pointing at `html/webapp/`.
 
 ## Build From Source
 
-Requires JDK 17+.
+Requires JDK 17+ and the game assets. The `assets/` folder is **not stored in this repository** — to build from source, restore it first:
 
 ```bash
-./gradlew teavm        # compiles the game to JS in html/webapp/
+cp -r html/webapp/assets assets       # from the shipped web build
+# or copy it from the upstream Delver repository
+
+./gradlew teavm                        # compiles the game to JS in html/webapp/
 ```
 
 ## Rebuild the Chinese Localization

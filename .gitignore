@@ -1,3 +1,6 @@
+# Source assets (kept local only; the playable copy lives in html/webapp/assets)
+/assets/
+
 # Gradle
 .gradle/
 build/

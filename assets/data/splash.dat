@@ -1,7 +1,0 @@
-{
-	"$schema": "http://delverengine.com/jsonschema/current/dungeoneer/screens/SplashScreenInfo.schema.json",
-	"backgroundLevel": "levels/outdoor-splash.bin",
-	"backgroundImage": "splash/Delver-Menu-BG.png",
-	"logoImage": "splash/Delver-Logo.png",
-	"music": "title.mp3"
-}
